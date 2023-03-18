@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/ido.css">
+    <style>
+        body {
+            background: linear-gradient(-90deg, #29bdd9 0%, #276ace 100%);
+        }
+    </style>
+
+</head>
+
+<body>
+    <style>
+        .back {
+            width: 50px;
+            height: 25px;
+            position: absolute;
+            top: 400px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 25px;
+            left: 20px;
+            z-index: 5;
+            background-color: antiquewhite;
+        }
+    </style>
+    <div class="background">
+        <div class="card">
+            <div class="photo"></div>
+            <h2>Yeah</h2>
+            <p>Good Time!</p>
+            <div class="chart">
+                <div class="bar">A</div>
+                <div class="bar">B</div>
+                <div class="bar">C</div>
+                <div class="bar">D</div>
+                <div class="bar">E</div>
+                <div class="bar">F</div>
+                <div class="bar">G</div>
+            </div>
+            <h3></h3>
+            <div class="bottom"></div>
+        </div>
+    </div>
+    <script>
+        var h2 = document.querySelector('h2');
+        var h3 = document.querySelector('h3');
+        var p = document.querySelector('p');
+        var card = document.querySelector('.card');
+        var bars = document.querySelectorAll('.card .chart .bar');
+        var num = [6000, 5000, 4000, 9000, 15000, 8000, 5000];
+        var arrpx = [];
+        var total = num.reduce(function (total, num) {
+            return total + num;
+        });
+        h3.innerHTML = total;
+        bars.forEach(function (bar, index) {
+            bar.setAttribute('data-num', num[index]);
+
+            var temp = Math.ceil(num[index] / 100) + 50;
+            if (temp > 250) {
+                arrpx.push(250);
+                // bar.setAttribute('data-px', 250+'px')
+            } else
+                // bar.setAttribute('data-px', temp+'px')
+
+                arrpx.push(Math.ceil(num[index] / 100) + 50);
+
+        });
+        document.body.onclick = function () {
+            card.classList.toggle('rot');
+            // 如果是打开状态
+            if (card.classList.contains('rot')) {
+                bars.forEach(function (bar, index) {
+                    bar.style.transform = 'rotate(45deg) translateZ(' + arrpx[index] + 'px)';
+                });
+            } else {
+                // 如果是关闭状态
+                bars.forEach(function (bar, index) {
+                    bar.style.transform = ' rotate(45deg)';
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 3 linkage</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <link rel="stylesheet" href="./chengshi.css">
+</head>
+
+<body>
+    <div class="city">
+        <ul class="sheng">
+            <div class="town">
+            </div>
+        </ul>
+    </div>
+    <script>
+        //html根据屏幕宽度设置根元素font-size
+        document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+        window.addEventListener("resize", (e) => {
+            document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+        });
+
+
+        //判断手机端还是PC端,html文件
+        function judge() {
+            let str = (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) ? 'app' : 'pc';
+            return str;
+        }
+
+        if (judge() == "app") {
+            $(".city")[0].style.transform = "scale(0.8)";
+        }
+        var a = [];
+        var b = [];
+        var c = [];
+        var data = [];
+
+        $.get("./prov-county.json", function (res) {
+            console.log(res, 666);
+            res.forEach(function (ele, i) {
+                if (parseInt(ele) < 100) {
+                    a.push(ele);
+                } else if (parseInt(ele) < 10000) {
+                    b.push(ele);
+                } else if (parseInt(ele) < 10000000) {
+                    c.push(ele);
+                }
+            });
+            a = _.sortBy(a, function (item) {
+                return parseInt(item);
+            });
+            // console.log(a);
+            b = _.sortBy(b, function (item) {
+                return parseInt(item);
+            });
+            c = _.sortBy(c, function (item) {
+                return parseInt(item);
+            });
+            a.forEach(function (ele, i) {
+                var obj = {}; //每个省
+                $(".sheng").append("<li data-id=" + parseInt(ele) + ">" + chn(ele) + "</li>");
+                obj.proName = a[i]; //得出data里面很多对象,每个对象的pro是一个省份
+                obj.town = []; //创建一个放市的位置
+                b.forEach(function (ele1, i1) {
+                    var obj1 = {}; //每个市
+                    obj1.townName = ele1;
+                    obj1.area = [];
+                    if (Math.floor(parseInt(ele1) / 100) == parseInt(ele)) {
+                        obj.town.push(obj1);
+                    }
+                    c.forEach(function (ele2, i2) {
+                        if (Math.floor(parseInt(ele2) / 100) == parseInt(ele1)) {
+                            obj1.area.push(ele2);
+                        }
+                    });
+                });
+                data.push(obj);
+            });
+            console.log(data);
+        });
+
+        function chn(params) {
+            params = params.replace(/[^\u4e00-\u9fa5]/gi, "");
+            return params;
+        }
+
+        window.onload = function () {
+            $(".sheng li").each(function (i, ele) {
+                $(ele).click(function () {
+                    $(ele).addClass("active").siblings().removeClass("active");
+                    $(".town").html("");
+                    $(".town").append('<div class="area"></div>');
+
+                    $(".area").html("");
+                    str = $(this).data("id");
+                    parseInt(str);
+                    data.forEach(function (ele1) {
+                        if (parseInt(ele1.proName) == str) {
+                            ele1.town.forEach(function (ele2, i2) {
+                                $(".town").append("<li data-id=" + parseInt(ele2
+                                    .townName) + ">" + chn(ele1.town[i2]
+                                        .townName) + "</li>");
+                            });
+                        }
+                    });
+
+
+                    $(".town li").click(function () {
+                        $(this).addClass("active").siblings().removeClass("active");
+                        $(".area").html("");
+                        str2 = $(this).data("id");
+                        c.forEach(function (ele2, i2) {
+                            if (str2 == Math.floor(parseInt(ele2) / 100)) {
+                                $(".area").append("<li>" + chn(ele2) + "</li>");
+                            }
+                        });
+                        $(".area li").click(function () {
+                            $(this).addClass("active").siblings().removeClass(
+                                "active");
+                        });
+                    });
+                });
+            });
+
+        }
+    </script>
+</body>
+
+</html>

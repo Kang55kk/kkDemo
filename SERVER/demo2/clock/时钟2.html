@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./CSS/clock.css">
+    <style>
+            body {
+        background-image: linear-gradient(180deg, rgb(14, 34, 248) 1%, rgb(38, 204, 68) 99%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+    }
+
+    .clock {
+        transform: scale(0);
+        transition: all .3s;
+        width: 476px;
+        height: 476px;
+        background-color: rgb(0, 0, 0);
+        position: relative;
+        border-radius: 50%;
+        box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(0, 0, 0, 0.5), inset -4px -4px 10px rgba(67, 67, 67, 0.3), 4px 4px 10px rgba(0, 0, 0, 0.3);
+        transform-origin: center center;
+    }
+
+
+    .clock .x-seconds {
+        height: 200px;
+        width: 2px;
+        background-color: #e5e5e5;
+        position: absolute;
+        top: 78px;
+        left: calc(50% - 1px);
+        transform-origin: center 160px;
+    }
+
+    .clock .x-hour {
+        height: 100px;
+        width: 10px;
+        background-color: #fff;
+        position: absolute;
+        top: 138px;
+        left: calc(50% - 5px);
+        transform-origin: center 100%;
+        border-radius: 10px;
+    }
+
+    .clock .x-min {
+        height: 150px;
+        width: 8px;
+        background-color: #fffe;
+        position: absolute;
+        top: 88px;
+        left: calc(50% - 4px);
+        transform-origin: center 100%;
+        border-radius: 8px;
+    }
+
+
+    .kedu i.b {
+        width: 6px;
+        height: 50px;
+        background-color: white;
+        position: absolute;
+        top: 20px;
+        left: calc(50% - 3px);
+        transform: rotate(45deg);
+        transform-origin: center calc(238px - 20px);
+        border-radius: 2px;
+    }
+
+    .dot {
+        width: 14px;
+        height: 14px;
+        background-color: #fff;
+        position: absolute;
+        border-radius: 50%;
+        z-index: 1;
+        left: calc(50% - 7px);
+        top: calc(50% - 7px);
+    }
+
+
+    .time {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 5px;
+    }
+
+    .time div {
+        overflow: hidden;
+    }
+
+    .time .hour,
+    .time .min,
+    .time .scd {
+        width: 130px;
+        margin: 0 10px;
+        height: 109px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .time .hour .hourleft,
+    .time .min .minleft,
+    .time .scd .scdleft {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .time .hour .hourright,
+    .time .min .minright,
+    .time .scd .scdright {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .time div span {
+        display: block;
+        margin: 8px;
+        padding: 10px 15px;
+        color: white;
+        box-shadow: 0 0 2px white;
+        border: 1px solid rgba(255, 255, 255, 0.682);
+        margin-top: 1px;
+        font-size: 50px;
+        transition: all 0.3s;
+        border-radius: 5px;
+    }
+
+    .box {
+        width: 500px;
+        height: 200px;
+        background-image: linear-gradient(53deg, rgb(14, 14, 248) 1%, rgb(38, 204, 38) 99%);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 10px rgb(38, 204, 38);
+        transition: all .5s;
+        transform-origin: center center;
+        /* animation: spin .5s  infinite ; */
+    }
+
+    .box2 {
+        width: 476px;
+        height: 176px;
+        background-color: rgb(0, 0, 0);
+        transition: all .5s;
+        transform-origin: center center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .normoal {
+        border-radius: 10px;
+    }
+
+    .normoal .box2 {
+        border-radius: 6px;
+
+    }
+
+    .active {
+        border-radius: 50%;
+        height: 500px;
+
+    }
+
+    .active .box2 {
+        border-radius: 50%;
+        height: 476px;
+    }
+
+    .title {
+        width: 430px;
+        height: 30px;
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 10px;
+    }
+
+    .title span {
+        color: white;
+        font-size: 25px;
+        text-align: center;
+        width: 130px;
+        background-color: rgb(42, 41, 41);
+        border-radius: 8px;
+    }
+
+
+
+    .anniu {
+        /* background-color: lightblue; */
+        position: fixed;
+        /* overflow: hidden; */
+        left:33px;
+        top: 48px;
+    }
+
+        .dagou {
+            /* 打勾 */
+            width: 170px;
+            height: 70px;
+            position: absolute;
+            z-index: 1;
+            opacity: 0;
+            background-color: black;
+            left: 0;
+            top: 0;
+            border-radius: 70px;
+            cursor: pointer;
+        }
+
+        .zhuti {
+            width: 170px;
+            height: 70px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 100px;
+            box-shadow: 0 0 6px gray;
+            background-color: rgba(11, 30, 237, 0.993);
+        }
+
+        .yuanquan {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 0 6px gray;
+            background-color: white;
+            position: absolute;
+            /* z-index: 1; */
+            transition: all .8s;
+            top: 10px;
+            left: 15px;
+        }
+
+        input:checked~.zhuti {
+            background-color: rgb(68, 204, 102);
+        }
+
+        input:checked~.yuanquan {
+            left: 105px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box normoal">
+        <div class="anniu">
+            <input type="checkbox" class="dagou">
+            <div class="zhuti"></div>
+            <div class="yuanquan"></div>
+        </div>
+        <div class="box2">
+            <div class="clock">
+                <div class="kedu">
+                    <i class="x-seconds"></i>
+                    <i class="x-min"></i>
+                    <i class="x-hour"></i>
+                </div>
+                <div class="dot"></div>
+            </div>
+            <div class="title">
+                <span>HOUR</span><span>MINUTE</span><span>SECOND</span>
+            </div>
+            <div class="time">
+                <div class="hour">
+                    <div class="hourleft">
+                        <span class="p1">1</span>
+                        <!-- <span class="p11">11</span> -->
+                    </div>
+                    <div class="hourright">
+                        <span class="p2">2</span>
+                        <!-- <span class="p22">22</span> -->
+                    </div>
+                </div>
+                <div class="min">
+                    <div class="minleft">
+                        <span class="p3">3</spam>
+                            <!-- <span class="p33">33</span> -->
+                    </div>
+                    <div class="minright">
+                        <span class="p4">4</span>
+                        <!-- <span class="p44">44</span> -->
+                    </div>
+                </div>
+                <div class="scd">
+                    <div class="scdleft">
+                        <span class="p5">5</span>
+                        <!-- <span class="p5">55</span> -->
+                    </div>
+                    <div class="scdright">
+                        <span class="p6">6</span>
+                        <!-- <span class="p6">66</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        let idx;
+        $(".dagou")[0].onclick = function () {
+            if ($(".box").hasClass("normoal")) {
+                $(".box").removeClass('normoal').addClass("active");
+                $(".time").css("opacity", "0")
+                $(".title").css("opacity", "0")
+                id();
+                setTimeout(() => {
+                $(".clock").css("transform", "scale(1)")
+                }, 300);
+                // transform: scale(0)
+
+            } else {
+                $(".clock").css("transform", "scale(0)")
+
+                setTimeout(() => {
+
+                    $(".box").removeClass('active').addClass("normoal");
+                    clearInterval(idx)
+                    $(".time").css("opacity", "1")
+                    $(".title").css("opacity", "1")
+                }, 300);
+
+            }
+        }
+
+        function id() {
+            let i = 54;
+            idx = setInterval(() => {
+                i += 10;
+                i = i % 360;
+                $(".box")[0].style.backgroundImage = "linear-gradient(" + i +
+                    "deg, rgb(14, 34, 248) 1%, rgb(38, 204, 68) 99%) "
+            }, 30);
+        }
+    </script>
+    <script>
+        var time = document.querySelector(".time")
+
+        function pad0(n) {
+            a = String(n).padStart(2, "0");
+            return a
+        }
+
+        function showNewNum(element, n) {
+            var nowp = element.getElementsByTagName("span")[0];
+            if (nowp.innerText !== n) {
+                var newp = document.createElement("span");
+                newp.innerText = n
+                element.appendChild(newp);
+                nowp.style.marginTop = "-90px";
+                setTimeout(function () {
+                    element.removeChild(nowp);
+                }, 300);
+            }
+        }
+
+
+        function setTime() {
+            var now = new Date()
+            var sn = pad0(String(now.getSeconds()))
+            var mn = pad0(String(now.getMinutes()))
+            var hn = pad0(String(now.getHours()))
+            // console.log(s1);
+
+
+            var ss = document.querySelector(".scd");
+            var hs = document.querySelector(".hour")
+            var ms = document.querySelector(".min")
+
+            ss.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, sn[i])
+            });
+
+            ms.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, mn[i])
+            });
+
+            hs.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, hn[i])
+            });
+        }
+
+        setInterval(setTime, 1000);
+        setTime()
+    </script>
+    <script>
+        var clock = document.querySelector(".clock")
+        var kedu = document.querySelector(".kedu")
+        for (var i = 0; i < 60; i++) {
+            if (i % 5 == 0) {
+                var node = document.createElement("i")
+                node.className = "b"
+                node.style.transform = "rotate(" + (i) * 6 + "deg)";
+                document.querySelector(".kedu").appendChild(node);
+            }
+        }
+
+        id3 = setInterval(function () {
+            var now = new Date()
+            var yhh = now.getHours()
+            var ymm = now.getMinutes()
+            var yss = now.getSeconds()
+            // console.log(hour);
+            let yscd = document.querySelector(".clock .x-seconds")
+            let ymin = document.querySelector(".clock .x-min")
+            let yhour = document.querySelector(".clock .x-hour")
+
+            yscd.style.transform = "rotate(" + yss * 6 + "deg)";
+            ymin.style.transform = "rotate(" + ymm * 6 + "deg)";
+            yhour.style.transform = "rotate(" + +(yhh * 30 + ymm * 0.5) + "deg)";
+        }, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大缩小</title>
+    <style>
+        .zoom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+        }
+
+        .zoom>.item {
+            background-color: gray;
+            background-color: rgb(230, 230, 230);
+            height: 4vh;
+            width: 8vh;
+            box-sizing: border-box;
+            background-size: 40% 80%;
+            background-repeat: no-repeat;
+            background-position: 2.5vh 0.5vh;
+        }
+
+        .zoom>.small {
+            border-top-left-radius: 8vh;
+            border-bottom-left-radius: 8vh;
+            background-image: url("./image/缩小.png");
+        }
+
+        .zoom>.big {
+            border-top-right-radius: 8vh;
+            border-bottom-right-radius: 8vh;
+            background-image: url("./image/放大.png");
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="zoom">
+        <div class="small item"></div>
+        <div style="height: 100%;width: 1px;"></div>
+        <div class="big item"></div>
+    </div>
+    <script>
+        let idBig = "";
+        let idSmall = "";
+        let multiple = 0.5;
+
+        let changeMultiple = (n) => {
+            multiple += n;
+            if (multiple <= 0) {
+                return;
+            }
+            $(".lunbo").css({ transform: `scale(${multiple})` });
+        };
+
+        $(".zoom .big")[0].onmousedown = function (e) {
+            changeMultiple(0.06);
+            idBig = setInterval(() => {
+                changeMultiple(0.06);
+            }, 100);
+        };
+        $(".zoom .big")[0].ontouchstart = function (e) {
+            changeMultiple(0.06);
+            idBig = setInterval(() => {
+                changeMultiple(0.06);
+            }, 100);
+        };
+        $(".zoom .small")[0].onmousedown = function (e) {
+            changeMultiple(-0.06);
+            idBig = setInterval(() => {
+                changeMultiple(-0.06);
+            }, 100);
+        };
+        $(".zoom .small")[0].ontouchstart = function (e) {
+            changeMultiple(-0.06);
+            idBig = setInterval(() => {
+                changeMultiple(-0.06);
+            }, 100);
+        };
+
+        document.onmouseup = function () {
+            clearInterval(idBig);
+            clearInterval(idSmall);
+        };
+        document.ontouchend = function () {
+            clearInterval(idBig);
+            clearInterval(idSmall);
+        }
+
+
+    </script>
+</body>
+
+</html>

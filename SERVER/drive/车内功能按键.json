@@ -1,0 +1,327 @@
+{
+    "cacheTime": 21600,
+    "checkTime": 10800,
+    "data": {
+        "itemList": [
+            {
+                "content": "追撞前车尾部的，均为A车全责。",
+                "id": 544,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/19/11/be3693b188b34ad1a44d422ad7442b19.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景1"
+            },
+            {
+                "content": "变更车道时，未让正在该车道内行驶的车先行的，均为A车全责。",
+                "id": 545,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/17/cab572170c964e17bdf0adf197ef0874.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景2"
+            },
+            {
+                "content": "通过没有交通信号灯控制或者交警指挥的路口时，未让交通标志、交通标线规定优先通行的一方先行的，均为A车全责。",
+                "id": 546,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/e73688acca564554bbb9739e21472bab.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景3"
+            },
+            {
+                "content": "通过没有交通信号灯控制或者交通警察指挥的交叉路口时，在交通标志、标线未规定优先通行的路口，未让右方道路的来车先行的，均为A车全责。",
+                "id": 547,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/dd2a2ac1df3949d9bccfb7dec451d3be.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景4"
+            },
+            {
+                "content": "通过没有交通信号灯控制或者交通警察指挥的交叉路口，遇相对方向来车，左转弯车未让直行车先行的，均为A车全责。",
+                "id": 548,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/a0b55ab2c63d4511b09cec9fc04ae742.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景5"
+            },
+            {
+                "content": "通过没有交通信号灯控制或者交通警察指挥的交叉路口时，相对方向行驶的右转弯车未让左转弯车的，均为A车全责。",
+                "id": 549,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/a5237d6c97704939865f493343a41084.jpg",
+                "ke1QuestionList": [
+                    "837200",
+                    "5632200"
+                ],
+                "ke4QuestionList": null,
+                "title": "场景6"
+            },
+            {
+                "content": "绿灯亮时，转弯车未让被放行的直行车先行的，均为A车全责。",
+                "id": 550,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/b628db09992e45aa9f678ef73c4a6fc8.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景7"
+            },
+            {
+                "content": "红灯亮时，右转弯车未让被放行的车先行的，均为A车全责。",
+                "id": 551,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/77934d4b4f74483d96329c24c8694a17.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景8"
+            },
+            {
+                "content": "在没有中心隔离设施或者没有中心线的道路上会车时，有障碍的一方未让无障碍的一方先行的，均为A车全责。",
+                "id": 552,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/9cd529efc744496397aa6e1978a9f79d.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景9"
+            },
+            {
+                "content": "在没有中心隔离设施或者没有中心线的道路上会车时，有障碍的一方已驶入障碍路段，无障碍一方未驶入时，无障碍一方未让有障碍的一方先行的，均为A车全责。",
+                "id": 553,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/653188bbd2b64d7299dfbc3151a89948.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景10"
+            },
+            {
+                "content": "在没有中心隔离设施或者没有中心线的道路上会车时，下坡车未让上坡车先行的，均为A车全责。",
+                "id": 554,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/6fad65fcf07346c4a0f2b9999dd3504a.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景11"
+            },
+            {
+                "content": "在没有中心隔离设施或者没有中心线的道路上会车时，下坡车已行至中途而上坡车未上坡时，上坡车未让下坡车先行的，均为A车全责。",
+                "id": 555,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/27608b8b7805484a83aa4509aa09c23b.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景12"
+            },
+            {
+                "content": "在没有中心隔离设施或者没有中心线的狭窄山路上会车时，靠山体的一方未让不靠山体的一方先行的，均为A车全责。",
+                "id": 556,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/a37d6f9a9dbf4894b49da9acc63d849d.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景13"
+            },
+            {
+                "content": "进入环行路口的车未让已在路口内的车先行，均为A车全责。",
+                "id": 557,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/3cb2f4c9b39e475e957ee0340d512afe.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景14"
+            },
+            {
+                "content": "逆向行驶的，均为A车全责。",
+                "id": 558,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/d0c3ad25d0fc4e7aa2ca5d0b2a3d2c79.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景15"
+            },
+            {
+                "content": "超越前方正在左转弯车的，均为A车全责。",
+                "id": 559,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/9fae825341664ea79ea1a70ec6b8674b.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景16"
+            },
+            {
+                "content": "超越前方正在掉头车的，均为A车全责。",
+                "id": 560,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/123e250dfb0c466fb044853268737aba.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景17"
+            },
+            {
+                "content": "超越前方正在超车的车的，均为A车全责。",
+                "id": 561,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/b6f4912be0de4fa0b5b7d44786507f5c.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景18"
+            },
+            {
+                "content": "与对面来车有会车可能时超车的，均为A车全责。",
+                "id": 562,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/dd23970f59e043aaa588d16588367115.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景19"
+            },
+            {
+                "content": "行经交叉路口、窄桥、弯道、陡坡、隧道时超车的，均为A车全责。",
+                "id": 563,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/f95666ed89f444e1ac2decd533a1ec21.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景20"
+            },
+            {
+                "content": "在没有中心线或者同一方向只有一条机动车道的道路上，从前车右侧超越的，均为A车全责。",
+                "id": 564,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/259c735de3fe41b29fe39d84d6ae7b80.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景21"
+            },
+            {
+                "content": "在没有禁止掉头标志、标线的地方掉头时，未让正常行驶车先行的，均为A车全责。",
+                "id": 565,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/092c2f1f8faf43c2a87b1ea8a18845c1.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景22"
+            },
+            {
+                "content": "在有禁止掉头标志、标线的地方以及在人行横道、桥梁、陡坡、隧道掉头的，均为A车全责。",
+                "id": 566,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/9fdd05eccf4e4c7ba36b520bf568b040.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景23"
+            },
+            {
+                "content": "倒车的，均为A车全责。",
+                "id": 567,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/aff8ad8ce35d4339a61767741a25c3ca.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景24"
+            },
+            {
+                "content": "溜车的，均为A车全责。",
+                "id": 568,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/5b9a8b2c78734eea84f980b10ce43a1a.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景25"
+            },
+            {
+                "content": "违反规定在专用车道内行驶的，均为A车全责。",
+                "id": 569,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/ae79bb7f101c4f7c9c3b71756f5c6f6b.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景26"
+            },
+            {
+                "content": "未按照交通警察指挥通行的，均为A车全责。",
+                "id": 570,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/01fb47c3feea41ee9d87a7f6eb1372fa.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景27"
+            },
+            {
+                "content": "驶入禁行线路的，均为A车全责。",
+                "id": 571,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/9d1c68f5c15a413891dcddbd45049442.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景28"
+            },
+            {
+                "content": "红灯亮时，继续通行的，均为A车全责。",
+                "id": 572,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/c755cb6658f44db4995d3ab5d51b8f8e.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景29"
+            },
+            {
+                "content": "在机动车道上违法停车的，均为A车全责。",
+                "id": 573,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/f7354bd424364f4582f6b282d5cc9401.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景30"
+            },
+            {
+                "content": "违反装载规定，致使货物超长、超宽、超高部分造成交通事故的，均为A车全责。",
+                "id": 574,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/cf5e665a76184d5d84eacf502cba4a8a.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景31"
+            },
+            {
+                "content": "装载的货物在遗洒、飘散过程中导致交通事故的，均为A车全责。",
+                "id": 575,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/befc295269934eceb07c8491e7dcf596.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景32"
+            },
+            {
+                "content": "违反导向标志指示行驶的，均为A车全责。",
+                "id": 576,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/a1bac2264cea47f2890e8153b809c267.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景33"
+            },
+            {
+                "content": "未按导向车道指示方向行驶的，均为A车全责。",
+                "id": 577,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/51782154fd674414ac1b8c70427b0f7f.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景34"
+            },
+            {
+                "content": "未按导向车道指示方向行驶的，均为A车全责。",
+                "id": 578,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/1f5ced76820f43c6b18c4ad9dfb41faf.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景35"
+            },
+            {
+                "content": "开关车门造成交通事故的，均为A车全责。",
+                "id": 579,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/c2676a39cc5f46aead56f1e466769aa7.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景36"
+            },
+            {
+                "content": "进出或穿越道路时未让行，均为A车全责。",
+                "id": 580,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/17/d67e25b2237847f685173a09c05096c8.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景37"
+            },
+            {
+                "content": "中心黄色虚线可以并线与调换车道，但是因为超车越线发生事故，A车负全责。",
+                "id": 581,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/17/56a9b1d243d74d1ba2ca253cb1fd0ed3.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景38"
+            },
+            {
+                "content": "有信号灯的路口未让先被放行的车先行，均为A车全责。",
+                "id": 582,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/18/17/9833412ba35547b593ae4116c089760c.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "场景39"
+            }
+        ]
+    },
+    "eTag": null,
+    "errorCode": 0,
+    "message": null,
+    "success": true
+}

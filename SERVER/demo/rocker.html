@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>游戏摇杆</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <script>
+    $("body").append(`<div class="rocker">
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+    </div>`);
+    $(".rocker .div1").css({
+      width: "53.33vw",
+      height: "53.33vw",
+      background: "rgba(0, 0, 0, 0.15)",
+      "border-radius": "100%",
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      "margin-left": "-26.666vw",
+      "margin-top": "-26.666vw",
+    });
+    $(".rocker .div2").css({
+      width: "13.333vw",
+      height: "13.333vw",
+      background: "rgb(255, 255, 255)",
+      "border-radius": "100%",
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      "margin-left": "-6.667vw",
+      "margin-top": "-6.667vw",
+    });
+    $(".rocker .div3").css({
+      width: "53.33vw",
+      height: "53.33vw",
+      "border-radius": "100%",
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      "margin-left": "-26.666vw",
+      "margin-top": "-26.666vw",
+    });
+
+
+
+    let div3 = document.querySelector(".rocker .div3");
+    let div2 = document.querySelector(".rocker .div2");
+    let r = 25; //摇杆的半径
+    let r2 = 100; //底盘的半径
+    let x = div2.offsetLeft + r; //加上r半径的偏移到中心
+    let y = div2.offsetTop + r;
+    div3.ontouchmove = (e) => {
+      let t = e.changedTouches[0];
+      //开根 触摸点到摇杆中心点的距离
+      let d = Math.sqrt(Math.pow(t.pageX - x, 2) + Math.pow(t.pageY - y, 2));
+      d = d > r2 - r ? r2 - r : d;
+      //三角函数求反正切 减去xy偏移到中心点
+      let radin = Math.atan2(t.pageY - y, t.pageX - x);
+      let vx = x + Math.cos(radin) * d;
+      let vy = y + Math.sin(radin) * d;
+      div2.style.left = vx + "px";
+      div2.style.top = vy + "px";
+      console.log(Math.round(vx - x), Math.round(vy - y));
+    };
+    div3.ontouchend = () => {
+      div2.style.left = x + "px";
+      div2.style.top = y + "px";
+    };
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .time {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .time div {
+            overflow: hidden;
+        }
+
+        .time .hour,
+        .time .min,
+        .time .scd {
+            width: 130px;
+            margin: 0 10px;
+            height: 109px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .time .hour .hourleft,
+        .time .min .minleft,
+        .time .scd .scdleft {
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .time .hour .hourright,
+        .time .min .minright,
+        .time .scd .scdright {
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .time div span {
+            display: block;
+            margin: 8px;
+            padding: 10px 15px;
+            color: white;
+            box-shadow: 0 0 2px white;
+            border: 1px solid rgba(255, 255, 255, 0.682);
+            margin-top: 1px;
+            font-size: 50px;
+            transition: all 0.3s;
+            border-radius: 5px;
+
+        }
+
+        
+
+        body {
+            background-color: rgb(60, 59, 59);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            width: 500px;
+            height: 200px;
+            background-image: linear-gradient(53deg, rgb(14, 14, 248) 1%, rgb(38, 204, 38) 99%);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px rgb(38, 204, 38);
+            transition: all .5s;
+            transform-origin: center center;
+            /* animation: spin .5s  infinite ; */
+        }
+
+        .box2 {
+            width: 476px;
+            height: 176px;
+            background-color: rgb(0, 0, 0);
+            transition: all .5s;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .normoal {
+            border-radius: 10px;
+
+        }
+
+        .normoal .box2 {
+            border-radius: 6px;
+
+        }
+
+        .active {
+            border-radius: 50%;
+            height: 500px;
+
+        }
+
+        .active .box2 {
+            border-radius: 50%;
+            height: 476px;
+        }
+
+        .title {
+            width: 430px;
+            height: 30px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .title span {
+            color: white;
+            font-size: 25px;
+            text-align: center;
+            width: 130px;
+            background-color: rgb(42, 41, 41);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box normoal">
+        <div class="box2">
+            <div class="title">
+                <span>HOUR</span><span>MINUTE</span><span>SECOND</span>
+            </div>
+            <div class="time">
+                <div class="hour">
+                    <div class="hourleft">
+                        <span class="p1">1</span>
+                        <!-- <span class="p11">11</span> -->
+                    </div>
+                    <div class="hourright">
+                        <span class="p2">2</span>
+                        <!-- <span class="p22">22</span> -->
+                    </div>
+                </div>
+                <div class="min">
+                    <div class="minleft">
+                        <span class="p3">3</spam>
+                            <!-- <span class="p33">33</span> -->
+                    </div>
+                    <div class="minright">
+                        <span class="p4">4</span>
+                        <!-- <span class="p44">44</span> -->
+                    </div>
+                </div>
+                <div class="scd">
+                    <div class="scdleft">
+                        <span class="p5">5</span>
+                        <!-- <span class="p5">55</span> -->
+                    </div>
+                    <div class="scdright">
+                        <span class="p6">6</span>
+                        <!-- <span class="p6">66</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        let idx;
+        window.onclick = function () {
+            if ($(".box").hasClass("normoal")) {
+                $(".box").removeClass('normoal').addClass("active");
+                $(".time").css("display", "none")
+                $(".title").css("display", "none")
+                id();
+
+            } else {
+                $(".box").removeClass('active').addClass("normoal");
+                clearInterval(idx)
+                $(".time").css("display", "flex")
+                $(".title").css("display", "flex")
+
+            }
+        }
+
+        function id() {
+            let i = 54;
+            idx = setInterval(() => {
+                i += 10;
+                i = i % 360;
+                $(".box")[0].style.backgroundImage = "linear-gradient(" + i +
+                    "deg, rgb(14, 34, 248) 1%, rgb(38, 204, 68) 99%) "
+            }, 30);
+        }
+    </script>
+    <script>
+        var time = document.querySelector(".time")
+
+        function pad0(n) {
+            a = String(n).padStart(2, "0");
+            return a
+        }
+
+        function showNewNum(element, n) {
+            var nowp = element.getElementsByTagName("span")[0];
+            if (nowp.innerText !== n) {
+                var newp = document.createElement("span");
+                newp.innerText = n
+                element.appendChild(newp);
+                nowp.style.marginTop = "-90px";
+                setTimeout(function () {
+                    element.removeChild(nowp);
+                }, 300);
+            }
+        }
+
+        setInterval(function () {
+            var now = new Date()
+            var sn = pad0(String(now.getSeconds()))
+            var mn = pad0(String(now.getMinutes()))
+            var hn = pad0(String(now.getHours()))
+            // console.log(s1);
+
+
+            var ss = document.querySelector(".scd");
+            var hs = document.querySelector(".hour")
+            var ms = document.querySelector(".min")
+
+            ss.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, sn[i])
+            });
+
+            ms.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, mn[i])
+            });
+
+            hs.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, hn[i])
+            });
+        }, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卡片记忆</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        .stage {
+            height: 499px;
+            width: 499px;
+            background-color: lightblue;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .stage i {
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+            text-align: center;
+            line-height: 100px;
+            font-size: 60px;
+            transition: all .5s;
+        }
+
+        .equal {
+            color: lightgreen;
+        }
+
+        .cover {
+            color: antiquewhite;
+        }
+
+        .show {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+
+    <script>
+        var itag = document.querySelectorAll("i");
+        var icons = [
+            "fa-bath", "fa-telegram", "fa-anchor", "fa-battery-quarter", "fa-bank", "fa-bug", "fa-bus", "fa-child",
+            "fa-bath", "fa-telegram", "fa-anchor", "fa-battery-quarter", "fa-bank", "fa-bug", "fa-bus", "fa-child"
+        ];
+
+        function shuffle(arr) {
+            arr.sort(function () {
+                return Math.random() - 0.5;
+            });
+            return arr;
+        }
+
+        shuffle(shuffle(icons)).forEach(function (ele, i) {
+            itag[i].className = "fa " + icons[i];
+        });
+
+        function changeClsN(ele, oldN, newN) {
+            ele.classList.remove(oldN)
+            ele.classList.add(newN)
+        }
+
+        itag.forEach(function (ele, i) {
+            changeClsN(ele, "1", "cover")
+            ele.onclick = function () {
+                changeClsN(ele, "cover", "show")
+                var shows = document.querySelectorAll(".show");
+                if (shows.length == 2) {
+                    if (shows[0].className == shows[1].className) {
+                        setTimeout(() => {
+                            changeClsN(shows[0], "show", "equal")
+                            changeClsN(shows[1], "show", "equal")
+                            var equals = document.querySelectorAll(".equal")
+                            if (equals.length == 16) {
+                                setTimeout(() => {
+                                    alert("Congratulations!!");
+                                    location.reload();
+                                }, 501);
+                            }
+                        }, 500);
+                    } else {
+                        setTimeout(() => {
+                            changeClsN(shows[0], "show", "cover")
+                            changeClsN(shows[1], "show", "cover")
+
+                        }, 800);
+                    }
+                }
+
+            }
+        });
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-content: space-between;
+            background-image: linear-gradient(#DFF6FF, #47B5FF);
+        }
+
+
+        .mask .tips {
+            width: 300px;
+            height: 200px;
+            background-color: rgba(9, 221, 30, 0.971);
+            border-radius: 20px;
+            position: absolute;
+            left: 50px;
+            top: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .mask .tips p {
+            font-size: 40px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .mian {
+            box-shadow: 0 0 15px rgb(41, 40, 40);
+            width: 400px;
+            height: 750px;
+            position: relative;
+            /* overflow: hidden; */
+            margin: 20px 0 ;
+        }
+
+        .mask {
+            width: 400px;
+            height: 752px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            /* background-color: rgba(240, 128, 128, 0.618); */
+            background-color: rgba(130, 237, 254, 0.618);
+        }
+
+
+        .scorebox {
+            padding: 15px;
+        }
+
+        .stage span {
+            color: red;
+            font-size: 20px;
+        }
+
+        .stage {
+
+            width: 400px;
+            height: 750px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* background-color: rgb(56, 223, 232); */
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        .stage i {
+            width: 100px;
+            height: 150px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            position: absolute;
+        }
+
+        .black {
+            background-color: rgba(0, 0, 0, 0.852);
+        }
+
+        .kaishi {
+            width: 400px;
+            height: 750px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kaishi span {
+            font-size: 40px;
+            /* background-color: rgb(150, 219, 246); */
+            background-image: linear-gradient(135deg, #DFF6FF, #47B5FF);
+            border-radius: 8px;
+            width: 250px;
+            height: 100px;
+            color: white;
+            letter-spacing: 5px;
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mian">
+        <div class="stage">
+            <div class="scorebox"><span>得分:</span><span class="score">0</span> </div>
+        </div>
+        <div class="mask">
+            <div class="tips">
+                <p>Game Over!!</p>
+            </div>
+        </div>
+        <div class="kaishi"><span>开始游戏</span></div>
+
+    </div>
+
+
+
+    <script>
+        var stage = document.querySelector(".stage");
+        var dots = [];
+        var mask = document.querySelector(".mask");
+        var num = 0;
+        var speed = 0.02;
+        var kaishi = document.querySelector(".kaishi");
+        var kaishis = document.querySelector(".kaishi span");
+
+        //点mask后重置游戏
+        mask.onclick = function () {
+            mask.style.display = "none";
+            chongzhi();
+            initial();
+            kaishi.style.display = "block";
+            tanyixia()
+        };
+
+
+        //失败后重新重置界面
+        function chongzhi() {
+            speed = 0.02;
+            var num = 0;
+            $(".score").text(num);
+
+            for (let i = 0; i < dots.length; i++) {
+                stage.removeChild(dots[i].node);
+            }
+            dots = [];
+        }
+
+        //居中文字
+        function tanyixia() {
+            kaishi.style.display = "flex";
+            kaishi.style.alignItems = "center";
+            kaishi.style.justifyContent = "center";
+        }
+
+
+        function Dot(x, y) {
+            this.x = x;
+            this.y = y;
+            this.node = document.createElement("i");
+            stage.appendChild(this.node);
+            this.updateView();
+        }
+
+        Dot.prototype.updateView = function () {
+            this.node.style.left = this.x * 100 + "px";
+            this.node.style.top = this.y * 150 + "px";
+        };
+
+
+        // 初始化游戏
+        function initial() {
+            var hei = 0;
+            for (let i = 19; i >= 0; i--) {
+                var dot = new Dot(i % 4, Math.floor(i / 4));
+                dot.node.classList.add("white");
+                dots.push(dot);
+            }
+            for (i = 2; i < 5; i++) {
+                var hei = Math.floor(Math.random() * 4);
+                var hei2 = i * 4 + hei;
+                wtob(dots[hei2]);
+            }
+        }
+        initial();
+        var blackall = document.querySelectorAll(".black");
+        //生成最顶端块
+        function creatTop() {
+            var x = Math.floor(Math.random() * 4);
+            if (dots[dots.length - 1].y >= 0) {
+                console.log(dots[dots.length - 1].y);
+                var xiaozi = dots[dots.length - 1].y;
+                for (let i = 0; i < 4; i++) {
+                    var dot = new Dot(i, -1 + xiaozi);
+                    dot.node.classList.add("white");
+                    dots.push(dot);
+                    dots[i].updateView();
+                    if (i === x) wtob(dot);
+                }
+            }
+        }
+
+        //白块变黑色
+        function wtob(jiedian) {
+            jiedian.node.classList.remove("white");
+            jiedian.node.classList.add("black");
+        }
+        //删除下面的块
+        function deleteBottom() {
+            for (i = 0; i < dots.length; i++) {
+                if (dots[i].y >= 5) {
+                    stage.removeChild(dots[i].node);
+                    dots.splice(i, 1);
+                }
+            }
+        }
+        //加速
+        function accelerate() {
+            speed = 0.02 + Math.floor(num / 10) * 0.002;
+        }
+        //判断游戏是否结束
+        function gameover() {
+            blackall = document.querySelectorAll(".black");
+            // console.log(blackall);
+            if (blackall[0]) {
+                black0top = parseInt(blackall[0].style.top);
+                if (black0top >= 600) {
+                    clearInterval(id);
+                    mask.style.display = "block";
+                    num = 0;
+                }
+            }
+
+            //点击白色的就失败
+            var white = document.querySelectorAll(".white");
+            for (let i = 0; i < white.length; i++) {
+                white[i].onclick = function () {
+                    this.style.backgroundColor = "rgba(220, 42, 42, 0.678)";
+                    mask.style.display = "block";
+                    clearInterval(id);
+                    num = 0;
+                    setTimeout(() => {
+                        this.style.backgroundColor = "white";
+                        setTimeout(() => {
+                            this.style.backgroundColor = "rgba(220, 42, 42, 0.678)";
+                            setTimeout(() => {
+                                this.style.backgroundColor = "white";
+                            }, 200);
+                        }, 200);
+                    }, 200);
+                };
+            }
+        }
+        var id;//游戏开始定时器
+
+        //点击开始游戏后开始
+        kaishis.onclick = function () {
+            chongzhi();
+            initial();
+            start();
+        };
+        //游戏开始
+        function start() {
+            kaishi.style.display = "none";
+            id = setInterval(function () {
+                gameover();
+                creatTop();
+                accelerate();
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].y += speed;
+                    dots[i].updateView();
+                }
+                var black = document.querySelectorAll(".black");
+                if (black[0]) {
+                    black[0].onclick = function () {
+                        num++;
+                        var fenshu = document.querySelector(".score");
+                        fenshu.innerHTML = num;
+                        black[0].classList.remove("black");
+                        black[0].classList.add("white");
+                    };
+                }
+                deleteBottom();
+                accelerate();
+                // console.log(black0top);
+                gameover();
+
+            }, 16);
+
+        }
+    </script>
+</body>
+
+</html>

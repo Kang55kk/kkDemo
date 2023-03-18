@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3</title>
+    <link rel="stylesheet" href="./mp3.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        /* .turnup{
+        width: 30px;
+        height: 30px;
+    } */
+    .MP3{
+        box-shadow: 5PX 5PX 15px rgb(56, 56, 56);
+    }
+    </style>
+
+</head>
+
+<body>
+    <audio src="./quotemusic/黄龄 - 痒.mp3" id="msc"></audio>
+    <div class="MP3">
+        <div class="stage">
+            <div class="screen">
+                <div class="x-title">
+                    <span class="geming"></span>
+                    <span class="shijian">
+                        <i class="xianzai"></i>
+                        <i class="zongshichang"></i>
+                    </span>
+                </div>
+                <canvas id="canvas" width="210" height="130"></canvas>
+                <div class="jdtbox">
+                    <div class="jdt">
+                        <div class="jdbt" id="jdbt1"></div>
+                    </div>
+                    <input type="range" maxlength="100" step="0.1" value="0">
+                </div>
+                <div class="scrmask"></div>
+
+            </div>
+            <div class="btns">
+                <i class="turnup">
+                    <svg id="svg1" t="1662770574132" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="1707" width="30" height="30">
+                        <path d="M512 170.666667l-234.666667 192H128v298.666666h149.333333l234.666667 192V170.666667z"
+                            fill="#fff" p-id="1708"></path>
+                        <path
+                            d="M530.282667 132.117333A42.666667 42.666667 0 0 1 554.666667 170.666667v682.666666a42.666667 42.666667 0 0 1-69.696 33.024L262.122667 704H128a42.666667 42.666667 0 0 1-42.666667-42.666667V362.666667a42.666667 42.666667 0 0 1 42.666667-42.666667h134.101333l222.869334-182.357333a42.666667 42.666667 0 0 1 45.290666-5.546667zM469.333333 260.693333l-164.970666 134.997334A42.666667 42.666667 0 0 1 277.333333 405.333333H170.666667v213.333334h106.666666a42.666667 42.666667 0 0 1 27.029334 9.642666L469.333333 763.306667V260.693333zM640 469.333333h298.666667v85.333334H640v-85.333334z"
+                            fill="#fff" p-id="1709"></path>
+                        <path d="M832 362.666667v298.666666h-85.333333V362.666667h85.333333z" fill="#fff" p-id="1710">
+                        </path>
+                    </svg>
+                </i>
+                <i class="fa fa-forward"></i>
+                <i class="fa fa-backward"></i>
+                <i class="turndown">
+                    <svg t="1662775352836" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="1787" width="25" height="25">
+                        <path d="M512 170.666667l-234.666667 192H128v298.666666h149.333333l234.666667 192V170.666667z"
+                            fill="#fff" p-id="1788"></path>
+                        <path
+                            d="M530.282667 132.117333A42.666667 42.666667 0 0 1 554.666667 170.666667v682.666666a42.666667 42.666667 0 0 1-69.696 33.024L262.122667 704H128a42.666667 42.666667 0 0 1-42.666667-42.666667V362.666667a42.666667 42.666667 0 0 1 42.666667-42.666667h134.101333l222.869334-182.357333a42.666667 42.666667 0 0 1 45.290666-5.546667zM469.333333 260.693333l-164.970666 134.997334A42.666667 42.666667 0 0 1 277.333333 405.333333H170.666667v213.333334h106.666666a42.666667 42.666667 0 0 1 27.029334 9.642666L469.333333 763.306667V260.693333zM640 469.333333h298.666667v85.333334H640v-85.333334z"
+                            fill="#fff" p-id="1789"></path>
+                    </svg>
+                </i>
+                <div class="play">
+                    <i class="fa fa-step-forward"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <input type="range" step="0.01" max="5"> -->
+</body>
+
+<script>
+    var music = $("#msc")[0];
+    var bofang = $(".fa-play");
+    var zanting = $(".fa-pause");
+    var jdbt = $(".jdbt")[0];
+    var jdt = $(".jdt")[0];
+    var context = $("#canvas")[0].getContext('2d'); //获取绘制上下文,固定写法
+    var id;
+    var id2; //歌放到哪里,小球滚到哪
+    var id3;
+
+
+    var quotemusic = [`黄龄 - 痒.mp3`, `王绎龙 - 午夜DJ.mp3`,
+        `PSY - 江南Style.mp3`];
+    var currentms = 0;
+    function playmusic(n) {
+        currentms = currentms % quotemusic.length;
+        $("#msc")[0].src = `./quotemusic/` + quotemusic[n];
+        music.oncanplay = function () {
+            $(".jdbt")[0].style.left = 0;
+            music.play();
+        };
+    }
+
+
+    music.oncanplay = function () {
+        //初始化canvas视图
+        function init() {
+            for (let i = 1; i <= 10; i++) {
+                context.fillStyle = "white";
+                var xx = i * 20 - 15;
+                var heightx = rdm(50, 120);
+                context.fillRect(xx, 130 - heightx, 19, heightx);
+            }
+        }
+        init();
+
+
+        //更新时间
+        function setshijian() {
+            // console.log(music.readyState);
+            if (music.readyState) {
+                $(".zongshichang").text(Math.floor(music.currentTime / 60).toString().padStart(2, "0") + `:` + Math.round(music.currentTime % 60).toString().padStart(2, "0") + `/ ` + Math.floor(music.duration / 60).toString().padStart("2", "0") + `:` + Math.round(music.duration % 60).toString().padStart(2, "0"));
+            }
+
+        }
+
+        function setgeming(n) {
+            console.log(currentms);
+            $(".geming").text(quotemusic[n].split(".")[0]);
+        }
+        setgeming(currentms);
+        setshijian();
+        music.volume = 0.6;
+         //动态柱状图
+        function zhu() {
+            id = setInterval(() => {
+                context.fillStyle = "white";
+
+                context.clearRect(0, 0, 210, 130);
+                for (let i = 1; i <= 10; i++) {
+                    var xx = i * 20 - 15;
+                    var heightx = rdm(50, 120);
+                    context.fillRect(xx, 130 - heightx, 19, heightx);
+                }
+            }, 650);
+        }
+
+
+        //按钮变色
+        $(".btns i").mousedown(function anjian() {
+            $(this).addClass("ajavtive");
+            $(".ajavtive svg path").attr("fill", "rgb(165, 159, 159)");
+        });
+        window.onmouseup = function () {
+            $("i").removeClass("ajavtive");
+            $("svg path").attr("fill", "#fff");
+        };
+
+        //亮屏息屏
+        function anping() {
+            return
+            $(".scrmask").css({
+                "opacity": `1`,
+            });
+        }
+        function liangping() {
+            clearTimeout(id3);
+            return
+            $(".scrmask").css({
+                "opacity": `0`,
+            });
+            id3 = setTimeout(() => {
+                anping();
+            }, 10000);
+        }
+        //生成随机数
+        function rdm(x, y) {
+            return Math.floor(Math.random() * (y - x) + x);
+        }
+
+        //绑定播放按钮功能
+        (function () {
+            $(".fa-step-forward")[0].onclick = function () {
+                liangping();
+
+                if (music.paused) {
+                    music.play();
+                    zhu();
+
+                } else {
+                    music.pause();
+                    clearInterval(id);
+                    // init()
+
+                }
+            };
+            $(".fa-forward").click(function () {
+                liangping();
+                var x = currentms;
+                x += 1;
+                x %= 3;
+                setgeming(x);
+
+                console.log(music.duration);
+                currentms++;
+                currentms %= quotemusic.length;
+                playmusic(currentms);
+
+            });
+
+            $(".fa-backward").click(function () {
+                liangping();
+                var x = currentms;
+                x += 1;
+                x %= 3;
+                setgeming(x);
+                console.log(music.duration);
+
+                if (currentms == 0) {
+                    currentms += quotemusic.length;
+                }
+                currentms--;
+                playmusic(currentms);
+                setshijian();
+
+            });
+            $(".turnup").click(function () {
+                liangping();
+
+                if (music.volume < 0.95) {
+                    music.volume += 0.05;
+                }
+                console.log(music.volume);
+
+            });
+            $(".turndown").click(function () {
+                liangping();
+
+                if (music.volume > 0.05) {
+                    music.volume -= 0.05;
+                }
+                console.log(music.volume);
+
+            });
+        })();
+        //进度条跟着播放时间走
+        music.ontimeupdate = otud;
+        function otud() {
+            $("input")[0].value = music.currentTime / music.duration * 100;
+            $(".jdbt")[0].style.left = (210 * $("input")[0].value / 100) + "px";
+            setshijian();
+            if (music.ended) {
+                clearInterval(id)
+            }
+        };
+
+
+        var id4;
+        $("input")[0].oninput = function () {
+            liangping();
+
+            clearTimeout(id4);
+            music.currentTime = music.duration * $("input")[0].value / 100;
+            $(".jdbt")[0].style.left = (210 * $("input")[0].value / 100) + "px";
+        };
+        $(".screen").click(liangping);
+    };
+</script>
+
+</html>

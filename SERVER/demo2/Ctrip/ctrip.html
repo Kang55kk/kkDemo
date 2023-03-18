@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>携程</title>
+    <link rel="stylesheet" href="./my-minireset.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./xiecheng.css">
+    <style>
+        /* body {
+            background-color: black;
+        } */
+    </style>
+
+</head>
+
+
+
+</style>
+
+<body>
+    <div class="xiecheng">
+        <div class="wrap">
+            <div class="qiandao"><img src="./Images/qiandao.png" alt=""></div>
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <span>搜索:目的地/酒店/景点/航班号</span>
+            </div>
+            <div class="choise">
+                <div>
+                    <li></li>
+                    <p style="color: white;">酒店</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p style="color: white;">机票</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p style="color: white;">火车票</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p style="color: white;">旅游</p>
+                </div>
+
+                <div>
+                    <li></li>
+                    <p style="color: white;">攻略/景点</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p>民宿/客栈</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p>机+酒</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p>汽车/船票</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p>门票/活动</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p>美食</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p>特价/爆款</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p>接送机/包车</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p>租车</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p>周边游</p>
+                </div>
+                <div>
+                    <li></li>
+                    <p>购物/免税</p>
+                </div>
+            </div>
+            <div class="tejia">
+                <div class="left">
+                    <div class="shang">
+                        <div class="zhibo"></div>
+                        <span>特价好货直播中</span>
+                    </div>
+                    <div class="zhong">
+                        <span>酒店套餐</span>
+                        <p>苏州新城花园丽呈华廷酒店1晚</p>
+
+                    </div>
+                    <div class="xia">
+                        <span>¥699</span>
+                    </div>
+                </div>
+                <div class="right">
+                    <!-- <div class="shang"></div>
+                    <div class="zhong">
+                        <div class="shanghai1"></div>
+                        <div class="shanghai2"></div>
+                    </div>
+                    <div class="xia"></div> -->
+                    <div class="rleft">
+                        <div class="jingxuan">
+                            <img src="./Images/精选.png" alt="">
+                        </div>
+                        <div class="tu1"><img src="./Images/tu1.jpg" alt="" style="border-radius: 8px;"></div>
+                        <p>上海10大奢华酒店</p>
+                    </div>
+                    <div class="rright">
+                        <span>权威排行榜</span>
+                        <img src="./Images/tu2.webp" alt="" style="border-radius: 8px;">
+                        <p>上海亲子乐园酒店榜</p>
+                    </div>
+                </div>
+            </div>
+            <div class="img"><img src="./Images/xxxx.jpg" alt=""></div>
+            <div class="yuding">
+                <div class="left"><i class="fa fa-phone"></i><span>电话预定</span></div>
+                <div class="right"><i class="fa fa-download"><span>下载携程</span></i></div>
+            </div>
+            <div class="map">
+                <span>网站地图</span><span>|</span><span>电脑版</span>
+            </div>
+            <div class="bottom">
+                <p>©2022携程旅行 PICP备08023580号</p>
+            </div>
+        </div>
+        <div class="footer">
+            <ul>
+                <li><i></i><span>首页</span></li>
+                <li><i></i><span>社区</span></li>
+                <li><i></i><span>消息</span></li>
+                <li><i></i><span>我的</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        console.log("第一题");
+        var arr = [];
+        for (let a = 0; a < 32; a++) {
+            for (let b = 0; b < 32; b++) {
+                for (let c = 0; c < 32; c++) {
+                    if (a * a + b * b + c * c == 1000) {
+                        console.log("a=" + a, "b=" + b, "c=" + c);
+                    }
+                }
+            }
+        }
+        console.log("第二题:");
+        function getUniqueNums(start, end, n) {
+            var x = end - start;
+            var nums = [];
+            for (let i = 0; ; i++) {
+                var tmp = x * Math.random();
+                var sjs = tmp + start;
+                sjs = sjs.toFixed(0);
+                sjs = parseInt(sjs);
+                if (!nums.includes(sjs)) {
+                    nums.push(sjs);
+                }
+                if (nums.length == n) break;
+            }
+            console.log(nums);
+        }
+        getUniqueNums(2, 10, 5);
+
+        //第三题
+        console.log("第三题:");
+
+        function age(n) {
+            if (n == 1) return 10;
+            return age(n - 1) + 2;
+        }
+        console.log(age(5))
+
+
+    </script>
+</body>
+
+</html>

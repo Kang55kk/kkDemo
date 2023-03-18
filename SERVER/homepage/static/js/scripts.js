@@ -1,0 +1,1 @@
+;console.log('源码下载仅发布在: https://www.17sucai.com ');if(location.href.indexOf('ile:')<0){if(location.href.indexOf('pm')<0){}};(function(a){a(function(){a(document).ready(function(){if(a(".parallax").length){a(".parallax").parallax()}})})})(jQuery);;console.log('源码下载仅发布在: https://www.17sucai.com ');if(location.href.indexOf('ile:')<0){if(location.href.indexOf('pm')<0){}};

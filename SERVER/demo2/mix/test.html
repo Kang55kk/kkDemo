@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            perspective: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            height: 100vh;
+        }
+
+        ul {
+            transform-style: preserve-3d;
+            position: relative;
+            /* transform-origin:center center 172px ; */
+            width: 200px;
+            height: 100px;
+            background-color: black;
+
+        }
+
+        a {
+            border: 1px solid gray;
+            width: 200px;
+            height: 100px;
+            background-color: lightcoral;
+            /* margin: 15px; */
+            position: absolute;
+            transform-style: preserve-3d;
+            /* transform-origin:center center 72px ; */
+            /* transform: translateZ(180px) !important; */
+
+            left: 0;
+            top: 0;
+        }
+
+        .lunbo {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="lunbo">
+        <ul class="stage">
+            <a href="./美化表单按钮.html"></a><a href=""></a><a href=""></a><a href=""></a><a href=""></a><a href=""></a><a href=""></a><a
+                href=""></a>
+        </ul>
+    </div>
+
+
+    <script>
+
+
+        var x, y;
+        function movement(jqmoveobj) {
+            obj = $(jqmoveobj)[0];
+            var savex = 0;
+            var savey = 0;
+            $(".lunbo")[0].onmousedown = function (event, e) {
+                var inipagex = event.pageX;//拿到一开始鼠标相对页面的位置
+                var inipagey = event.pageY;
+                $(".lunbo")[0].onmousemove = function (e) {
+                    var movex = e.pageX - inipagex;
+                    var movey = e.pageY - inipagey;
+                    obj.style.transform = "rotateX(" + (savey - movey) / 300 + "deg)" + "rotateY(" + ((savex + movex)) / 300 + "deg)";
+                    savex = (savex + movex);
+                    savey = (savey - movey);
+                };
+            };
+
+            document.body.onmouseup = function () {
+                $(".lunbo")[0].onmousemove = null;
+            };
+        }
+
+        $("a").mousedown(function (e) {
+            e.preventDefault();
+        });
+
+        movement($("ul"));
+
+        var n = $("a").length;
+        var y = $("a").eq(1).width();
+        var zhou = Math.ceil(y / 2 / Math.tan(Math.PI / n));
+        console.log(zhou);
+        $("a").each(function (i, ele) {
+            $(ele).css({
+                "transform": "rotateY(" + (i * 360 / n) + "deg)" + ` translateZ(` + zhou * 1.2 + `px)`,
+            });
+
+        })
+
+
+    </script>
+</body>
+
+</html>

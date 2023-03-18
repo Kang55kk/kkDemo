@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="stage"></div>
+
+    <style>
+        .stage {
+            width: 600px;
+            height: 600px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .stage i {
+            border-radius: 50%;
+        }
+    </style>
+
+    <script>
+        var stageEl = document.querySelector('.stage');
+        var level = 1;
+
+
+
+        function showDot(level) {
+            var j = level + 2
+            var color = "#"+Math.random().toString(16).slice(-6);
+            for (var i = 0; i < j * j; i++) {
+                var dot = document.createElement("i");
+            dot.style.backgroundColor = color;
+                
+                stageEl.appendChild(dot);
+                dot.style.width = 600 / j + "px"
+                dot.style.height = 600 / j + "px"
+                var sjs = Math.floor(Math.random() * j * j);
+                var dots = document.querySelectorAll("i");
+            }
+            dots[sjs].style.opacity = "0.8";
+            dots[sjs].onclick = function () {
+                for (let i = 0; i < j * j; i++) {
+                    stageEl.removeChild(dots[i])
+                }
+                level += 2
+                showDot(level)
+                console.log(level);
+            }
+        }
+        showDot(level)
+    </script>
+</body>
+
+</html>

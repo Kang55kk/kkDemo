@@ -1,0 +1,219 @@
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    background-image: radial-gradient(#305f9c, #12243b);
+
+}
+
+.MP3 {
+    .ajavtive {
+        color: rgb(165, 159, 159) !important;
+
+    }
+
+    .stage {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.797);
+        width: 300px;
+        height: 500px;
+        // background-color: rgb(84, 113, 123);
+        background-image: linear-gradient(116deg, rgb(147, 138, 133), rgb(102, 93, 88) 45%, rgb(45, 36, 30) 45%);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 15px;
+
+        .screen {
+            height: 230px;
+            width: 250px;
+            background-image: radial-gradient(#d6ccb6, #f7efdc);
+            border-radius: 5px;
+            margin-top: 20px;
+            position: relative;
+            // filter: brightness(0.05); 
+            transition: all .3s;
+
+            .scrmask {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                pointer-events: none;
+                z-index: 13;
+                background-color: rgb(66, 62, 59);
+                opacity: 0;
+            }
+
+            canvas {
+                position: absolute;
+                // opacity: 0;
+                left: 20px;
+                top: 71px;
+                transition: all .3s;
+            }
+
+            .x-title {
+                position: absolute;
+                width: 210px;
+                left: 20px;
+                top: 20px;
+                height: 50px;
+                // background-color: #305f9c;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+
+                }
+
+                .geming {
+                    font-size: 18px;
+                    padding-bottom: 8px;
+                    font-weight: 500;
+                    color: white;
+                    // color: rgb(253, 253, 2);
+
+
+                }
+
+                .shijian {
+                    font-size: 18px;
+
+                    i {
+                        color: white;
+                        font-size: 13px;
+                        line-height: 18px;
+                    }
+
+                }
+            }
+
+            .cvsmask {
+                position: absolute;
+                left: 20px;
+                top: 71px;
+                background-color: lightcoral;
+            }
+
+            .jdtbox {
+                position: absolute;
+                bottom: 15px;
+                left: 20px;
+
+                input {
+                    position: absolute;
+                    width: 220px;
+                    height: 5px;
+                    left: 0;
+                    top: 0;
+                    cursor: pointer;
+                    opacity: 0;
+                }
+
+                .jdt {
+                    pointer-events: none;
+                    width: 210px;
+                    height: 5px;
+                    background-color: white;
+                    position: relative;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    left: 0;
+                    top: 0;
+
+                    .jdbt {
+                        pointer-events: none;
+
+                        position: absolute;
+                        height: 10px;
+                        width: 10px;
+                        background-color: white;
+                        border: 1px solid gray;
+                        border-radius: 50%;
+                        top: -3px;
+                    }
+                }
+
+            }
+
+        }
+
+        .btns {
+            height: 170px;
+            width: 170px;
+            background-color: rgb(66, 62, 59);
+            position: relative;
+            margin: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+
+
+
+
+            i {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 25px;
+                color: rgba(255, 255, 255);
+                position: absolute;
+                cursor: pointer;
+                width: 25px;
+                height: 25px;
+
+                &:nth-child(1) {
+                    left: calc(50% - 12.5px);
+                    top: 10px;
+                }
+
+                &:nth-child(2) {
+                    right: 10px;
+                    bottom: calc(50% - 12.5px);
+                }
+
+                &:nth-child(3) {
+                    left: 10px;
+                    bottom: calc(50% - 12.5px);
+                }
+
+                &:nth-child(4) {
+                    bottom: 10px;
+                    left: calc(50% - 12.5px);
+
+                }
+            }
+
+            .play {
+                background-color: rgb(45, 36, 30);
+                width: 65px;
+                border-radius: 50%;
+                height: 65px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                i {
+                    position: initial;
+                    // padding-left: 3px;
+                    width: 25px;
+                    font-size: 23px;
+                }
+
+            }
+
+        }
+    }
+
+}

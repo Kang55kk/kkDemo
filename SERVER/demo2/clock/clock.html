@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炫酷时钟</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./CSS/clock.css">
+    <style>
+        body>.box {
+            /* transform: scale(0.5); */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="anniu">
+        <input type="checkbox" class="dagou">
+        <div class="zhuti"></div>
+        <div class="yuanquan"></div>
+    </div>
+    <div class="box normoal">
+
+        <div class="box2">
+            <div class="clock">
+                <div class="kedu">
+                    <i class="x-seconds"></i>
+                    <i class="x-min"></i>
+                    <i class="x-hour"></i>
+                </div>
+                <div class="dot"></div>
+            </div>
+            <div class="title">
+                <span>HOUR</span><span>MINUTE</span><span>SECOND</span>
+            </div>
+            <div class="time">
+                <div class="hour">
+                    <div class="hourleft">
+                        <span class="p1">1</span>
+                        <!-- <span class="p11">11</span> -->
+                    </div>
+                    <div class="hourright">
+                        <span class="p2">2</span>
+                        <!-- <span class="p22">22</span> -->
+                    </div>
+                </div>
+                <div class="min">
+                    <div class="minleft">
+                        <span class="p3">3</spam>
+                            <!-- <span class="p33">33</span> -->
+                    </div>
+                    <div class="minright">
+                        <span class="p4">4</span>
+                        <!-- <span class="p44">44</span> -->
+                    </div>
+                </div>
+                <div class="scd">
+                    <div class="scdleft">
+                        <span class="p5">5</span>
+                        <!-- <span class="p5">55</span> -->
+                    </div>
+                    <div class="scdright">
+                        <span class="p6">6</span>
+                        <!-- <span class="p6">66</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        //html根据屏幕宽度设置根元素font-size
+        document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+        window.addEventListener("resize", (e) => {
+            document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+        });
+
+
+        //判断手机端还是PC端,html文件
+        function judge() {
+            let str = (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) ? 'app' : 'pc';
+            return str;
+        }
+
+        if (judge()=="app") {
+            $(".box")[0].style.transform = "scale(0.5)"
+        }
+
+
+        let idx;
+        $(".dagou")[0].onclick = function () {
+            if ($(".box").hasClass("normoal")) {
+                $(".box").removeClass('normoal').addClass("active");
+                $(".time").css("opacity", "0");
+                $(".title").css("opacity", "0");
+                id();
+                setTimeout(() => {
+                    $(".clock").css("transform", "scale(1)");
+                }, 300);
+                // transform: scale(0)
+
+            } else {
+                $(".clock").css("transform", "scale(0)");
+
+                setTimeout(() => {
+
+                    $(".box").removeClass('active').addClass("normoal");
+                    clearInterval(idx);
+                    $(".time").css("opacity", "1");
+                    $(".title").css("opacity", "1");
+                }, 300);
+
+            }
+        };
+
+        function id() {
+            // let i = 54;
+            // idx = setInterval(() => {
+            //     i += 10;
+            //     i = i % 360;
+            //     $(".box")[0].style.backgroundImage = "linear-gradient(" + i +
+            //         "deg, rgb(14, 34, 248) 1%, rgb(38, 204, 68) 99%) ";
+            // }, 30);
+        }
+    </script>
+    <script>
+        var time = document.querySelector(".time");
+
+        function pad0(n) {
+            a = String(n).padStart(2, "0");
+            return a;
+        }
+
+        function showNewNum(element, n) {
+            var nowp = element.getElementsByTagName("span")[0];
+            if (nowp.innerText !== n) {
+                var newp = document.createElement("span");
+                newp.innerText = n;
+                element.appendChild(newp);
+                nowp.style.marginTop = "-90rem";
+                setTimeout(function () {
+                    element.removeChild(nowp);
+                }, 300);
+            }
+        }
+
+
+        function setTime() {
+            var now = new Date();
+            var sn = pad0(String(now.getSeconds()));
+            var mn = pad0(String(now.getMinutes()));
+            var hn = pad0(String(now.getHours()));
+            // console.log(s1);
+
+
+            var ss = document.querySelector(".scd");
+            var hs = document.querySelector(".hour");
+            var ms = document.querySelector(".min");
+
+            ss.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, sn[i]);
+            });
+
+            ms.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, mn[i]);
+            });
+
+            hs.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, hn[i]);
+            });
+        }
+
+        setInterval(setTime, 1000);
+        setTime()
+    </script>
+    <script>
+        var clock = document.querySelector(".clock");
+        var kedu = document.querySelector(".kedu");
+        for (var i = 0; i < 60; i++) {
+            if (i % 5 == 0) {
+                var node = document.createElement("i");
+                node.className = "b";
+                node.style.transform = "rotate(" + (i) * 6 + "deg)";
+                document.querySelector(".kedu").appendChild(node);
+            }
+        }
+
+        id3 = setInterval(function () {
+            var now = new Date();
+            var yhh = now.getHours();
+            var ymm = now.getMinutes();
+            var yss = now.getSeconds();
+            // console.log(hour);
+            let yscd = document.querySelector(".clock .x-seconds");
+            let ymin = document.querySelector(".clock .x-min");
+            let yhour = document.querySelector(".clock .x-hour");
+
+            yscd.style.transform = "rotate(" + yss * 6 + "deg)";
+            ymin.style.transform = "rotate(" + ymm * 6 + "deg)";
+            yhour.style.transform = "rotate(" + +(yhh * 30 + ymm * 0.5) + "deg)";
+        }, 1000);
+    </script>
+</body>
+
+</html>

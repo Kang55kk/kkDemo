@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="choujiang">
+        <div class="up">
+            <p></p>
+        </div>
+        <div class="down">
+            <div class="liang">
+                <p>手机</p>
+            </div>
+            <div class="liang">
+                <p>平板</p>
+            </div>
+            <div class="liang">
+                <p>电磁炉</p>
+            </div>
+            <div class="liang">
+                <p>洗衣机</p>
+            </div>
+            <div class="liang">
+                <p>衣柜</p>
+            </div>
+            <div class="liang">
+                <p>冰箱</p>
+            </div>
+            <div class="liang">
+                <p>电脑</p>
+            </div>
+            <div class="liang">
+                <p>电视</p>
+            </div>
+            <div class="kaishi">
+                <p>开始</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center
+        }
+
+        .choujiang {
+            margin-top: 180px;
+            width: 400px;
+            height: 500px;
+            display: flex;
+            /* background-color: lightblue; */
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .choujiang .up {
+            width: 330px;
+            height: 50px;
+            /* background-color: lightcoral; */
+            border-radius: 2px;
+            margin: 15px 0;
+            box-shadow: 0 0 7px rgb(104, 103, 103);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .choujiang .up p {
+            color: black;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .choujiang .down {
+            margin-top: 20px;
+            width: 330px;
+            height: 330px;
+            /* background-color: lightcyan; */
+            position: relative;
+
+        }
+
+        .choujiang .down div {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* background-color: rgb(22, 186, 236); */
+            position: absolute;
+        }
+
+
+        .choujiang .down div:nth-child(1) {
+            top: 0;
+            left: 0;
+            background-color: #4E4E4E;
+
+        }
+
+        .choujiang .down div:nth-child(2) {
+            top: 0;
+            left: 115px;
+        }
+
+        .choujiang .down div:nth-child(3) {
+            top: 0;
+            right: 0;
+        }
+
+        .choujiang .down div:nth-child(4) {
+            right: 0;
+            top: 115px;
+        }
+
+        .choujiang .down div:nth-child(5) {
+            right: 0;
+            bottom: 0;
+        }
+
+        .choujiang .down div:nth-child(6) {
+            bottom: 0;
+            left: 115px;
+        }
+
+        .choujiang .down div:nth-child(7) {
+            left: 0;
+            bottom: 0;
+        }
+
+        .choujiang .down div:nth-child(8) {
+            left: 0;
+            top: 115px;
+        }
+
+        .choujiang .down div:nth-child(9) {
+            left: 115px;
+            top: 115px;
+            background-color: rgb(255, 148, 61);
+            display: flex;
+            cursor: pointer;
+        }
+
+
+
+        p {
+            color: white;
+        }
+
+        .an {
+            background-color: #4E4E4E;
+        }
+
+        .liang {
+            background-color: #16BAEC;
+
+        }
+    </style>
+
+    <script>
+        let zheng = document.querySelectorAll(".choujiang .down div");
+        var zheng9 = document.querySelector(".kaishi");
+        let wenzi = document.querySelector(".choujiang .up p")
+        zheng9.onclick = function () {
+            zheng9.style.cursor = "not-allowed"
+            zheng9.onclick = null; // 解绑onclick事件
+            quanlan()
+            var x = random();
+            wenzi.innerHTML = ""
+            zhuan()
+
+            function zhuan() {
+                for (let i = 0; i < x; i++) {
+                    let y = i % 8
+                    setTimeout(function () {
+                        anyixia(i % 8)
+                        if (i == x - 1) {
+                            setTimeout(() => {
+                                gongxini(y)
+                                bianan(y)
+                                buttonSubmit()
+                                zheng9.style.cursor = "pointer"
+                            }, 100);
+                        }
+                    }, 100 * i);
+
+                }
+            }
+
+        }
+
+
+        function buttonSubmit() {
+            zheng9.onclick = function () {
+                zheng9.style.cursor = "not-allowed"
+                zheng9.onclick = null; // 解绑onclick事件
+                quanlan()
+                var x = random();
+                wenzi.innerHTML = ""
+                zhuan()
+
+                function zhuan() {
+                    for (let i = 0; i < x; i++) {
+                        let y = i % 8
+                        setTimeout(function () {
+                            anyixia(i % 8)
+                            if (i == x - 1) {
+                                setTimeout(() => {
+                                    gongxini(y)
+                                    bianan(y)
+                                    buttonSubmit()
+                                    zheng9.style.cursor = "pointer"
+                                }, 100);
+                            }
+                        }, 100 * i);
+
+                    }
+                }
+
+            }
+        }
+
+        function random() {
+            var x;
+            do {
+                x = 10 * Math.random()
+            } while (x > 9 || x < 1);
+            x = parseInt(x) + 16
+            // console.log(x);
+            return x;
+        }
+
+        function anyixia(x) {
+            zheng[x].style.backgroundColor = "#4E4E4E";
+            setTimeout(() => {
+                zheng[x].style.backgroundColor = "#16BAEC";
+            }, 90);
+        }
+
+        function bianan(a) {
+            setTimeout(() => {
+                zheng[a].style.backgroundColor = "#4E4E4E";
+
+            }, 0);
+        }
+
+        function quanlan() {
+            var zheng = document.querySelectorAll(".choujiang .down div");
+            for (let i = 0; i < 8; i++) {
+                zheng[i].style.backgroundColor = "#16BAEC";
+            }
+        }
+
+
+
+        function gongxini(i) {
+
+            switch (i) {
+                case 0:
+                    wenzi.innerHTML = "恭喜你抽中了手机!!!"
+                    break;
+                case 1:
+                    wenzi.innerHTML = "恭喜你抽中了平板!!!"
+                    break;
+                case 2:
+                    wenzi.innerHTML = "恭喜你抽中了电磁炉!!!"
+                    break;
+                case 3:
+                    wenzi.innerHTML = "恭喜你抽中了洗衣机!!!"
+                    break;
+                case 4:
+                    wenzi.innerHTML = "恭喜你抽中了衣柜!!!"
+                    break;
+                case 5:
+                    wenzi.innerHTML = "恭喜你抽中了冰箱!!!"
+                    break;
+                case 6:
+                    wenzi.innerHTML = "恭喜你抽中了电脑!!!"
+                    break;
+                case 7:
+                    wenzi.innerHTML = "恭喜你抽中了电视!!!"
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

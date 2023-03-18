@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh" style="font-size: calc(100vw / 960)">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="./seal.css" />
+</head>
+
+<body>
+  <div class="page">
+    <div class="seal">
+      <div class="circle">
+        <div class="circle2">
+          <div class="center">
+            <div class="star">★</div>
+            <div class="text">responsibility</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="adjustBox">
+      <div class="item" style="margin-bottom: 10rem">
+        <div class="name">印章边缘文字</div>
+
+        <input type="text" step="1" max="500" min="0" attr="width" class="text_input" placeholder="输入印章文字"
+          value='巴山楚水凄凉地' />
+      </div>
+      <div class="item">
+        <div class="name">印章边框粗细</div>
+        <input class="circle_input" type="range" step="1" max="30" min="0" attr="borderWidth" selector="circle"
+          value='15' />
+      </div>
+      <div class="item">
+        <div class="name">印章边框半径大小</div>
+        <input class="circle_input" type="range" step="1" max="500" min="0" attr="width" selector="circle" />
+      </div>
+      <div class="item">
+        <div class="name">字体半径大小</div>
+        <input class="circle_input2" type="range" step="1" max="500" min="0" attr="width" selector="circle2" />
+      </div>
+
+      <div class="item">
+        <div class="name">印章旋转</div>
+        <input class="circle_input2" type="range" step="1" max="720" min="0" attr="rotate" selector="circle2" />
+      </div>
+      <div class="item">
+        <div class="name">字体大小</div>
+        <input class="characterControl" type="range" step="1" max="140" min="10" attr="font-size" selector="character"
+          value="20" />
+      </div>
+      <div class="item">
+        <div class="name">字体密集程度</div>
+        <input class="characterControl" type="range" step="1" max="70" min="10" attr="space" selector="character" />
+      </div>
+      <div class="item">
+        <div class="name">五角星下文字</div>
+        <input class="starText" type="text" step="1" max="360" min="0" attr="text" selector="text" />
+      </div>
+      <div class="item">
+        <div class="name">中心五角星大小</div>
+        <input class="circle_input2" type="range" step="0.5" max="5" min="0" attr="scale" selector="center" />
+      </div>
+      <div class="item">
+        <div class="name">中心五角星旋转</div>
+        <input class="circle_input2" type="range" step="1" max="360" min="0" attr="rotate" selector="center" />
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </div>
+  <script>
+    document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+    window.addEventListener("resize", (e) => {
+      document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+    });
+    let rotationAngle = 32;
+    //输入dom，返回宽度
+    var domWidth = function (className, selector = 2) {
+      return Number($('.' + className).css("width").replace("px", ""));
+    };
+    //改变印章边框粗细和半径大小
+    $(".circle_input").bind("input propertychange", function (e) {
+      let dom = $("." + $(this).attr("selector"))[0];
+      let value = this.value;
+      let attr = $(this).attr("attr");
+      if (!dom) {
+        return;
+      }
+      dom.style[attr] = value + "rem";
+      if (attr == "width") {
+        dom.style.height = value + "rem";
+      }
+    });
+
+    //输入文字添加节点
+    $(".text_input").bind("input propertychange", function () {
+      let dom = $(".center")
+      $(".circle2").html(dom);
+      addCharacter(this.value);
+    });
+    var addCharacter = function (str) {
+      let arr = str.split("");
+      let big = Number($(".characterControl")[0].value);
+      arr.forEach((e, i) => {
+        $(".circle2").append(`<div class="character">${e}</div>`);
+        $(".character")[i].style.fontSize = big + "rem";
+        $(".character")[i].style.width = (big + 5) + "rem";
+        $(".character")[i].style.height = (big + 5) + "rem";
+        $(".character")[i].style.transform = `rotate(${i * rotationAngle}deg)`;
+      });
+      textAline();
+      rotationCenter();
+    };
+
+
+    //五角星下文字
+    //输入文字添加节点
+    $(".starText").bind("input propertychange", function () {
+      $(".text").text(this.value)
+    });
+
+    //字体半径大小调节,五角星旋转
+    $(".circle_input2").bind("input propertychange", function (e) {
+      let dom = $("." + $(this).attr("selector"))[0];
+      let value = this.value;
+      let attr = $(this).attr("attr");
+      if ((attr == "rotate") && (dom.className == "center")) {
+        $(dom).css({ transform: `rotate(${centerRotate()}deg) scale(${centerSize()})` });
+        return;
+      }
+
+
+
+      if ((attr == "rotate") && (dom.className == "circle2")) {
+        // $(dom).css({ transform: `rotate(${value}deg)})` });
+        dom.style.transform = `rotate(${value}deg)`
+        console.log(value);
+        return;
+      }
+      if (attr == "scale") {
+        $(dom).css({ transform: `scale(${value}) rotate(${centerRotate()}deg)` });
+        return;
+      }
+
+
+      dom.style[attr] = value + "rem";
+      if (attr == "width") {
+        dom.style.height = value + "rem";
+      }
+      rotationCenter();
+      centerPhoCenter();
+    });
+
+    // 拿到所有input,变为数组
+    var getInputArr = function () {
+      let arr = [];
+      for (let index = 0; index < $("input").length; index++) {
+        arr.push($("input")[index]);
+      }
+      return arr;
+    };
+
+    //五角星大小
+    var centerSize = () => {
+      let size = getInputArr().find((e) => $(e).attr("attr") == "scale").value;
+      size = Number(size);
+      return size;
+    };
+    //五角星旋转
+    var centerRotate = () => {
+      let deg = getInputArr().find((e) => ($(e).attr("attr") == "rotate") && ($(e).attr("selector") == "center")).value;
+      // deg = Number(deg);
+      // getInputArr().map(e => { console.log(e.className); });
+      console.log(deg);
+      return deg;
+    };
+    centerSize();
+
+
+
+    //字体大小调节,密集程度调节
+    $(".characterControl").bind("input propertychange", function (e) {
+      let domArr = $("." + $(this).attr("selector"));
+      let attr = $(this).attr("attr");
+      if (attr == "font-size") {
+        let value = this.value;
+        $.each(domArr, (index, dom) => {
+
+          $(dom).css({ "font-size": (Number(value) + "rem") });
+          $(dom).css({ width: (Number(value) + 5 + "rem") });
+          $(dom).css({ height: (Number(value) + 5 + "rem") });
+        });
+      }
+
+      if (attr == "space") {
+        rotationAngle = this.value;
+        let arr = $(".text_input").val().split("");
+        let big = Number($(".characterControl")[0].value);
+        let dom = $(".center")
+
+        $(".circle2").html(dom);
+
+        arr.forEach((e, i) => {
+          $(".circle2").append(`<div class="character">${e}</div>`);
+          $(".character")[i].style.transform = `rotate(${i * rotationAngle}deg)`;
+          $(".character")[i].style.fontSize = big + "rem";
+          $(".character")[i].style.width = (big + 5) + "rem";
+          $(".character")[i].style.height = (big + 5) + "rem";
+        });
+      }
+      textAline();
+      rotationCenter();
+    });
+
+    // 文字居中
+    var textAline = function () {
+      let character = $(".character");
+      if (character[0]) {
+        character.css({
+          left: `calc(50% - ${Number(
+            character.css("width").replace("px", "") / 2
+          )}rem)`,
+        });
+      }
+    };
+    //调节旋转中心
+    var rotationCenter = () => {
+      let character = $(".character");
+      let characterWidth = Number(character.css("width")?.replace("px", "")) / 2;
+      character.css({
+        "transform-origin": `center ${Number(
+          $(".circle2").css("width")?.replace("px", "") / 2
+        )}rem`,
+        "transform-origin": `center ${domWidth("circle2") / 2}px`,
+      });
+    };
+    //中心图案居中
+    var centerPhoCenter = function () {
+      $(".center").css({
+        left: (domWidth("circle2") / 2 - domWidth("center") / 2) + 'rem',
+        top: (domWidth("circle2") / 2 - domWidth("center") / 2-9) + 'rem'
+      });
+    };
+
+
+
+    addCharacter('巴山楚水凄凉地');
+    centerPhoCenter();
+    "responsibility"
+
+  </script>
+</body>
+
+</html>

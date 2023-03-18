@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="time">
+        <div class="hour">
+            <div class="hourleft">
+                <span class="p1">1</span>
+                <!-- <span class="p11">11</span> -->
+            </div>
+            <div class="hourright">
+                <span class="p2">2</span>
+                <!-- <span class="p22">22</span> -->
+            </div>
+        </div>
+        <div class="min">
+            <div class="minleft">
+                <span class="p3">3</spam>
+                    <!-- <span class="p33">33</span> -->
+            </div>
+            <div class="minright">
+                <span class="p4">4</span>
+                <!-- <span class="p44">44</span> -->
+            </div>
+        </div>
+        <div class="scd">
+            <div class="scdleft">
+                <span class="p5">5</span>
+                <!-- <span class="p5">55</span> -->
+            </div>
+            <div class="scdright">
+                <span class="p6">6</span>
+                <!-- <span class="p6">66</span> -->
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .time {
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 400px;
+        }
+
+        .time div {
+            overflow: hidden;
+        }
+
+        .time .hour,
+        .time .min,
+        .time .scd {
+            width: 109px;
+            margin: 10px;
+            height: 109px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .time .hour .hourleft,
+        .time .min .minleft,
+        .time .scd .scdleft {
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .time .hour .hourright,
+        .time .min .minright,
+        .time .scd .scdright {
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .time div span {
+            display: block;
+            margin: 3px;
+            padding: 10px;
+            color: white;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.484);
+            margin-top: 1px;
+            font-size: 50px;
+            transition: all 0.3s;
+
+        }
+    </style>
+
+    <script>
+        var time = document.querySelector(".time")
+
+        function pad0(n) {
+            a = String(n).padStart(2, "0");
+            return a
+        }
+
+        function showNewNum(element, n) {
+            var nowp = element.getElementsByTagName("span")[0];
+            if (nowp.innerText !== n) {
+                var newp = document.createElement("span");
+                newp.innerText = n
+                element.appendChild(newp);
+                nowp.style.marginTop = "-90px";
+                setTimeout(function () {
+                    element.removeChild(nowp);
+                }, 300);
+            }
+        }
+
+        setInterval(function () {
+            var now = new Date()
+            var sn = pad0(String(now.getSeconds()))
+            var mn = pad0(String(now.getMinutes()))
+            var hn = pad0(String(now.getHours()))
+            // console.log(s1);
+
+
+            var ss = document.querySelector(".scd");
+            var hs = document.querySelector(".hour")
+            var ms = document.querySelector(".min")
+
+            ss.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, sn[i])
+            });
+
+            ms.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, mn[i])
+            });
+
+            hs.querySelectorAll("div").forEach(function (ele, i) {
+                showNewNum(ele, hn[i])
+            });
+        }, 1000);
+    </script>
+</body>
+
+</html>

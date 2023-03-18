@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            perspective: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            height: 100vh;
+        }
+
+        ul {
+            transform-style: preserve-3d;
+            position: relative;
+            /* transform-origin:center center 172px ; */
+            width: 200px;
+            height: 100px;
+            background-color: black;
+
+        }
+
+        li {
+            border: 1px solid gray;
+            width: 200px;
+            height: 100px;
+            background-color: lightcoral;
+            /* margin: 15px; */
+            position: absolute;
+            transform-style: preserve-3d;
+            /* transform-origin:center center 72px ; */
+            /* transform: translateZ(180px) !important; */
+
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    
+
+    <ul class="stage">
+        <li>1</li>
+        <li>2</li>
+        <li style="background-color: red;">3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    <script>
+
+
+
+        //拖拽函数
+        let xx;
+        let yy;
+        function movement(jqmoveobj) {
+            let savex = 0;
+            let savey = 0;
+            obj = $(jqmoveobj)[0];
+            let movex;
+            let movey;
+            document.body.onmousedown = function (event) {
+                let inipagex = event.pageX;//拿到一开始鼠标相对页面的位置
+                let inipagey = event.pageY;
+                console.log("down" + savex, savey);
+                document.body.onmousemove = function (e) {
+                    console.log(`move` + savex, savey);
+
+                    movex = (e.pageX - inipagex);//移动后的鼠标的位置相对于初始位置改变多少就旋转多少
+                    movey = (e.pageY - inipagey);
+                    obj.style.transform = "rotateX(" + (savey - movey) / 5 + "deg)" + "rotateY(" + (savex + movex) / 5 + "deg)";
+                    inipagex = event.pageX;//每次停下就初始化鼠标相对于页面的位置
+                    inipagey = event.pageY;
+                    savey = (- movey);
+                    savex = (movex);
+                    // console.log(savex, savey);
+                    // console.log("\ninipagex: " + inipagex + "   inipagey: " + inipagey + "\n\n   (movex): " + (movex / 5) + "      movey: " + (- movey) / 5 + "\n");
+                };
+            };
+
+            document.body.onmouseup = function () {
+                document.body.onmousemove = null;
+                console.log(`up  ` + savex, savey);
+                xx = savex;
+                yy = savey;
+
+            };
+        }
+        //去除li的默认操作
+        $("li").mousedown(function (e) {
+            e.preventDefault();
+        });
+
+
+        // 给ul加拖拽
+        movement($("ul"));
+
+
+
+        var n = $("li").length;
+        var y = $("li").eq(1).width();
+        var zhou = Math.ceil(y / 2 / Math.tan(Math.PI / n));
+        console.log(zhou);
+        $("li").each(function (i, ele) {
+            $(ele).css({
+                // "transform": `translateZ(-36px)`,
+                // "transform-origin": `center center ` + zhou * 1.2 + "px",
+                "transform": "rotateY(" + (i * 360 / n) + "deg)" + ` translateZ(` + zhou * 1.2 + `px)`,
+            });
+
+        })
+
+
+    </script>
+</body>
+
+</html>

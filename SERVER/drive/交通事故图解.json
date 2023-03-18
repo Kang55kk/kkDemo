@@ -1,0 +1,62 @@
+{
+    "cacheTime": 21600,
+    "checkTime": 10800,
+    "data": {
+        "itemList": [
+            {
+                "content": "该按键是用来在车内遥控开启油箱盖。装有该按键的车辆，驾驶员可以通过这个按键将油箱盖子从车内打开。不过油箱的关闭还需要手动在车外控制。",
+                "id": 604,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/17/17/868f482ca13a4e4b98e90e82ad23a044.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "油箱开启键"
+            },
+            {
+                "content": "该按键是用来打开关闭车辆的ESP。车辆的ESP系统默认为工作状态，为了享受更直接的驾驶感受，车主可以按下该按键关闭ESP系统。",
+                "id": 605,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/17/17/675a81c1c2a74a02bc7d22b594c46c56.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "ESP开关"
+            },
+            {
+                "content": "该按键是用来根据车主需要打开或是关闭车上的倒车雷达系统。驾驶员可以按下该按钮手动控制倒车雷达的工作。在倒车时手动关闭倒车雷达，或是手动开启倒车雷达。",
+                "id": 606,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/17/17/8ee443ca3ed643e98ba30da9c16ae689.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "倒车雷达键"
+            },
+            {
+                "content": "该按键是车辆中控门锁的控制按钮。车主可以通过按下该按钮，同时打开或是关闭各车门的门锁。也可以单独关闭某一个开启的车门。有效的保证了车内人员的安全。",
+                "id": 607,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/17/17/961814cc3bd247c6bf72c1681fe145d9.jpg",
+                "ke1QuestionList": [
+                    "892300"
+                ],
+                "ke4QuestionList": null,
+                "title": "中控锁键"
+            },
+            {
+                "content": "该按键是用来控制前大灯的自动清洗功能。在装有前大灯清洗的车辆上，车主可以通过按下这一按键开启前大灯清洗装置，对车辆的前大灯进行喷水清洗。",
+                "id": 608,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/17/17/9bfaf39fba8445f8a31a7f16e323eaac.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "前大灯清洗键"
+            },
+            {
+                "content": "该按键是用来控制车内电动后遮阳帘的打开与关闭。在装有电动后遮阳帘的车内，车主可以通过按下这一按键打开或是开启后窗的电动遮阳帘。用来遮挡阳光。",
+                "id": 609,
+                "imageUrl": "http://exam-room.image.mucang.cn/exam-room/2021/05/17/17/020b239402784f3c8f25bc1b093de082.jpg",
+                "ke1QuestionList": null,
+                "ke4QuestionList": null,
+                "title": "后遮阳帘键"
+            }
+        ]
+    },
+    "eTag": null,
+    "errorCode": 0,
+    "message": null,
+    "success": true
+}

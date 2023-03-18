@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手风琴</title>
+    <style>
+        body{
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back">
+        <div class="stage">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <style>
+        .back {
+            display: flex;
+            align-content: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            height: 700px;
+            width: 100vw;
+            background: url(./1.jpg);
+            /* transition: all 0.5s ease-out; */
+        }
+
+        .back img {
+            float: left;
+        }
+
+        .stage {
+            width: 780px;
+            height: 400px;
+            display: flex;
+            float: left;
+            border: 2px solid white;
+        }
+
+        .stage div {
+
+            width: 60px;
+            height: 100%;
+            /* background-position: top center; */
+            background-size: cover;
+            transition: all 0.3s;
+        }
+
+        .stage div:nth-child(1) {
+            background-image: url('./0.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .stage div:nth-child(2) {
+            background-image: url('./1.jpg');
+            width: 600px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .stage div:nth-child(3) {
+            background-image: url('./2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .stage div:nth-child(4) {
+            background-image: url('./3.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+
+    <script>
+        var imgs = document.querySelectorAll(".stage>div")
+        var back = document.querySelector(".back");
+
+        // imgs.forEach(img, i => {
+        //     img.onclick = function () {
+        //         imgs.forEach(el, index => {
+        //             if (index === i) {
+        //                 el.style.width = "600px"
+        //             } else {
+        //                 el.style.wdith = "60px"
+        //             }
+        //         });
+
+        //     };
+
+        // });
+
+
+        // imgs.forEach(function (img, i) {
+        //     img.onclick = function () {
+        //         imgs.forEach(function (el, index) {
+        //             if (index === i) {
+        //                 el.style.width = "600px";
+        //             } else {
+        //                 el.style.width = "60px";
+        //             }
+
+        //         });
+        //     };
+        // });
+            for(let i=0;i<imgs.length;i++){
+                imgs[i].title=i;
+                imgs[i].onclick=function(){
+                    for(var i=0;i<imgs.length;i++){
+                        imgs[i].style.width = "60px";
+                    }
+                    imgs[this.title].style.width = "600px";
+                    back.style.background='url(./'+this.title+'.jpg)';
+                }
+            };
+    </script>
+</body>
+
+</html>

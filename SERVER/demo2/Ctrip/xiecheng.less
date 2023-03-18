@@ -1,0 +1,472 @@
+body {
+    display: flex;
+    justify-content: space-evenly;
+
+    ul,
+    li {
+        margin: 0;
+        list-style: none;
+        padding: 0;
+    }
+}
+
+.xiecheng {
+
+    div {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .wrap {
+
+        background-color: rgb(244, 244, 244);
+        width: 375px;
+        display: flex;
+        margin: 10px 0;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        .qiandao {
+            width: 76px;
+            height: 76px;
+            position: absolute;
+            bottom: 30px;
+            right: 0;
+        }
+
+        .search {
+            margin-top: 15px;
+            width: 330px;
+            border: 2px solid rgb(41, 135, 245);
+            height: 30px;
+            border-radius: 30px;
+            // box-sizing: border-box;
+            display: flex;
+            padding: 0px 15px;
+            align-items: center;
+
+            i {
+                margin-right: 8px;
+                color: rgb(125, 125, 125);
+            }
+
+            span {
+                color: rgb(125, 125, 125);
+
+            }
+        }
+
+        .choise {
+            width: 360px;
+            // height: 150px;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 15px 0;
+
+            div {
+                width: 70px;
+                height: 58px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 1px;
+
+                li {
+                    width: 30px;
+                    height: 30px;
+                    background-size: cover;
+                    background-position: center;
+                }
+
+                &:nth-child(1) {
+                    background-color: rgb(250, 117, 81);
+
+                    li {
+                        background-image: url('./Images/1.png');
+                    }
+                }
+
+                &:nth-child(2) {
+                    background-color: rgb(71, 158, 250);
+
+                    li {
+                        background-image: url('./Images/2.png');
+                    }
+                }
+
+                &:nth-child(3) {
+                    background-color: rgb(96, 137, 255);
+
+                    li {
+                        background-image: url('./Images/3.png');
+                    }
+                }
+
+                &:nth-child(4) {
+                    background-color: rgb(58, 202, 181);
+
+                    li {
+                        background-image: url('./Images/4.png');
+                    }
+                }
+
+                &:nth-child(5) {
+                    background-color: rgb(255, 151, 62);
+
+                    li {
+                        background-image: url('./Images/5.png');
+                    }
+
+                }
+
+                &:nth-child(6) {
+                    background-color: rgb(255, 245, 241);
+
+                    li {
+                        background-image: url('./Images/6.png');
+                    }
+                }
+
+                &:nth-child(7) {
+                    background-color: rgb(239, 249, 255);
+
+                    li {
+                        background-image: url('./Images/7.png');
+                    }
+                }
+
+                &:nth-child(8) {
+                    background-color: rgb(242, 245, 255);
+
+                    li {
+                        background-image: url('./Images/8.png');
+                    }
+                }
+
+                &:nth-child(9) {
+                    background-color: rgb(236, 252, 248);
+
+                    li {
+                        background-image: url('./Images/9.png');
+                    }
+                }
+
+                &:nth-child(10) {
+                    background-color: rgb(255, 249, 242);
+
+                    li {
+                        background-image: url('./Images/10.png');
+                    }
+                }
+
+                &:nth-child(11) {
+                    background-color: rgb(255, 245, 241);
+
+                    li {
+                        background-image: url('./Images/11.png');
+                    }
+                }
+
+                &:nth-child(12) {
+                    background-color: rgb(239, 249, 255);
+
+                    li {
+                        background-image: url('./Images/12.png');
+                    }
+                }
+
+                &:nth-child(13) {
+                    background-color: rgb(242, 245, 255);
+
+                    li {
+                        background-image: url('./Images/13.png');
+                    }
+                }
+
+                &:nth-child(14) {
+                    background-color: rgb(236, 252, 248);
+
+                    li {
+                        background-image: url('./Images/14.png');
+                    }
+                }
+
+                &:nth-child(15) {
+                    background-color: rgb(255, 249, 242);
+
+                    li {
+                        background-image: url('./Images/15.png');
+                    }
+                }
+
+                p {
+                    font-size: 12px;
+                }
+
+            }
+
+        }
+
+        .tejia {
+            align-items: center;
+            display: flex;
+            justify-content: space-around;
+            width: 360px;
+            // height: 10px;
+            // padding: 10px 0;
+
+
+            .left {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: white;
+                padding: 5px 0;
+
+                border-radius: 10px;
+                width: 170px;
+                height: 135px;
+
+                .shang {
+                    width: 160px;
+                    padding: 3px 0;
+
+                    display: flex;
+                    justify-content: space-between;
+
+                    .zhibo {
+                        height: 18px;
+                        width: 70px;
+                        background-image: url('./Images/1659750280.png');
+                    }
+
+
+                    span {
+                        height: 17px;
+                        margin-right: -4px;
+                        background-color: rgb(255, 234, 225);
+                        color: rgb(255, 118, 72);
+                        font-size: 10px;
+                    }
+
+                }
+
+
+                .zhong {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    overflow: hidden;
+                    width: 160px;
+                    background-image: url('./Images/1659750283.jpg');
+                    background-size: cover;
+                    background-position: center;
+                    height: 90px;
+                    border-radius: 8px;
+
+                    span {
+                        background-color: rgb(79, 83, 88);
+                        font-size: 13px;
+                        color: white;
+                        width: 55px;
+                        border-bottom-right-radius: 5px;
+
+                    }
+
+                    p {
+                        font-size: 12px;
+                        color: white;
+                        font-weight: 700;
+                        width: 140px;
+                        margin-left: 5px;
+                        margin-bottom: 5px;
+                    }
+                }
+
+                .xia {
+                    width: 160px;
+
+                    span {
+                        height: 18px;
+                        line-height: 18px;
+                        font-size: 13px;
+                        font-weight: 700;
+                        color: #f60;
+                        padding-right: 2px;
+                    }
+                }
+            }
+
+            .right {
+                border-radius: 8px;
+                height: 145px;
+                width: 170px;
+                display: flex;
+                background-color: white;
+                align-items: center;
+                justify-content: space-evenly;
+
+                .tu1 {
+                    img {
+                        height: 89.8px;
+                    }
+                }
+
+                .jingxuan {
+                    img {
+                        width: 65px;
+                    }
+                }
+
+                p {
+                    font-size: 6px;
+                    height: 16px;
+                    overflow: hidden;
+                }
+
+                display: flex;
+
+                .rleft {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-right: 3px;
+                    width: 70px;
+
+                    .jingxuan {
+                        width: 60px;
+                    }
+
+                }
+
+                .rright {
+                    display: flex;
+                    width: 72px;
+                    flex-direction: column;
+                    align-items: center;
+                    height: 130.6px;
+                    justify-content: space-between;
+
+
+
+                    span {
+                        background-color: rgb(253, 239, 210);
+                        font-size: 8px;
+                        color: rgb(192, 141, 67);
+                        text-align: center;
+                        display: block;
+                    }
+
+                    img {
+                        height: 89.8px;
+                    }
+
+
+                }
+
+
+            }
+
+        }
+
+        .yuding {
+            margin-top: 20px;
+            display: flex;
+            width: 300px;
+            justify-content: space-between;
+
+            span {
+                color: rgb(146, 131, 142);
+                margin-left: 5px;
+            }
+
+            div {
+                padding: 10px 20px;
+                border: 1px solid rgb(183, 183, 183);
+                border-radius: 5px;
+            }
+
+            i {
+                color: rgb(146, 131, 142);
+            }
+        }
+
+        .map {
+            justify-content: space-between;
+            display: flex;
+            width: 150px;
+
+            span {
+                line-height: 50px;
+                font-size: 8px;
+                color: rgb(146, 131, 142);
+            }
+        }
+
+        .bottom {
+            p {
+                color: rgb(146, 131, 142);
+                font-size: 8px;
+            }
+            margin-bottom: 10px;
+        }
+    }
+    .img{
+        margin-top: 10px;
+        width: 94%;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .footer {
+        width: 375px;
+        position:fixed;
+
+        ul {
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+
+            li {
+                
+                i {
+                    display: block;
+                    width: 32px;
+                background-image: url("./Images/精灵.png");
+                height: 32px;
+                    background-size: 32px auto;
+
+                    
+                }
+
+                span {
+                    display: block;
+                }
+                &:nth-of-type(1) {
+                    i {
+                        background-position: 0 -0px;
+                    }
+                }
+                &:nth-of-type(2) {
+                    i {
+                        background-position: 0 -32px;
+                    }
+                }
+                &:nth-of-type(3) {
+                    i {
+                        background-position: 0 -65px;
+                    }
+                }
+                &:nth-of-type(4) {
+                    i {
+                        background-position: 0 -96px;
+                    }
+                }
+            }
+        }
+    }
+}

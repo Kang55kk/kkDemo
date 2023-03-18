@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  background-image: radial-gradient(#305f9c, #12243b);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  perspective: 800rem;
+}
+.beebody {
+  pointer-events: none;
+  background-image: repeating-linear-gradient(#e5b237 0%, #d1a438 20%, black 20%, black 40%);
+  animation: updown 1.5s linear infinite alternate;
+}
+.beebody > .up,
+.beebody > .left,
+.beebody > .right {
+  background-image: repeating-linear-gradient(#e5b237 0%, #d1a438 20%, black 20%, black 40%);
+}
+.beebody > .front,
+.beebody > .back {
+  background-color: #e5b237 !important;
+}
+.beebody .beefoot .up,
+.beebody .beefoot .left,
+.beebody .beefoot .right,
+.beebody .beefoot .front,
+.beebody .beefoot .back {
+  background-color: black;
+}
+.beebody .beeeye .up,
+.beebody .beeeye .left,
+.beebody .beeeye .right,
+.beebody .beeeye .front,
+.beebody .beeeye .back {
+  background-color: white;
+}
+.beebody .beeeye .beeeyez {
+  background-image: none;
+}
+.beebody .chibangl {
+  transform-origin: center center -10rem !important;
+  animation: chil 0.1s infinite alternate;
+}
+.beebody .chibangr {
+  animation: chir 0.1s 0s infinite alternate;
+  transform-origin: center center -10rem !important;
+}
+.beebody .beetail {
+  pointer-events: none;
+}
+.beebody .beetail div {
+  box-sizing: border-box;
+}
+.beebody .beetail .up {
+  width: 0 !important;
+  height: 0;
+}
+.beebody .beetail .front {
+  border-bottom: 35rem solid black;
+  border-left: 15rem solid transparent;
+  transform: rotateX(-64deg) !important;
+  border-right: 15rem solid transparent;
+}
+.beebody .beetail .back {
+  border-top: 35rem solid black;
+  border-left: 15rem solid transparent;
+  border-right: 15rem solid transparent;
+  transform: rotateX(64deg) !important;
+}
+.beebody .beetail .left {
+  border-left: 35rem solid black;
+  border-top: 15rem solid transparent;
+  border-bottom: 15rem solid transparent;
+  transform: rotateY(-64deg) !important;
+}
+.beebody .beetail .right {
+  border-right: 35rem solid black;
+  border-top: 15rem solid transparent;
+  border-bottom: 15rem solid transparent;
+  transform: rotateY(64deg) !important;
+}
+.box {
+  width: 500rem;
+  height: 500rem;
+  transform: rotateX(77.1deg) rotateZ(40.2deg);
+  position: relative;
+}
+.box .caodi {
+  position: relative;
+}
+.box .caodi > .up {
+  background-image: repeating-linear-gradient(#749547 0%, #749547 10%, #7fa34e 10%, #7fa34e 20%);
+}
+.shadow {
+  pointer-events: none;
+  width: 150rem;
+  height: 150rem;
+  position: absolute;
+  left: calc(50% - 90rem);
+  top: calc(50% - 50rem);
+  background-image: radial-gradient(circle closest-side at 60% 55%, black, transparent 100%);
+  border-radius: 50%;
+  filter: blur(3rem);
+  opacity: 0.4;
+  animation: shadowda 1.5s linear infinite alternate-reverse;
+}
+@keyframes updown {
+  from {
+    transform: translateZ(70rem);
+  }
+  to {
+    transform: translateZ(150rem);
+  }
+}
+@keyframes shadowda {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+@keyframes chir {
+  0% {
+    transform: rotateY(-30deg) translateZ(-10rem);
+  }
+  100% {
+    transform: rotateY(30deg) translateZ(-10rem);
+  }
+}
+@keyframes chil {
+  0% {
+    transform: rotateY(30deg) translateZ(-10rem);
+  }
+  100% {
+    transform: rotateY(-30deg) translateZ(-10rem);
+  }
+}
+/*# sourceMappingURL=./bee.css.map */

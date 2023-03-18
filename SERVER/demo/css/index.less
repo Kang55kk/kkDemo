@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    flex-direction: column;
+    // font-family: canger;
+
+
+    @font-face {
+        font-family: canger;
+        src: url("../quote/仓耳非白W05/仓耳非白W05.ttf")
+    }
+
+    .KK {
+        // background-color: gray;
+        // background-image: linear-gradient(45deg, rgb(36, 30, 38), rgb(67, 50, 70));
+
+        .x-bgr {
+            width: 100vw;
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
+            background-image: url('/img/bgr.jpg');
+            filter: opacity(80%);
+            position: relative;
+            opacity: 0.9;
+
+            .mask {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h1 {
+                    color: white;
+                    // background-color: rgba(255, 255, 255, 0.507);
+                    background-color: rgba(0, 0, 0, 0.737);
+                    padding: 20rem;
+                    text-align: center;
+                    font-size: 40rem;
+                    font-family: canger;
+                    letter-spacing: 6rem;
+                    font-weight: 100;
+                    border-radius: 8rem;
+                }
+            }
+        }
+
+        .x-work {
+            background-color: transparent;
+            padding-top: 20rem;
+            height: 500rem;
+
+            .x-title {
+                color: rgba(255, 255, 255, 0.882);
+                font-family: canger;
+                font-size: 20rem;
+                text-align: center;
+                font-weight: 100;
+
+            }
+
+            .main {
+                margin-top: 20rem;
+                box-shadow: 0 0 14rem 0rem rgb(0, 0, 0);
+                padding: 30rem;
+                border-radius: 10rem;
+                width: 600rem;
+
+                .class {
+                    margin-top: 10rem;
+
+                    h2 {
+                        color: rgba(231, 231, 236, 0.916);
+                        font-size: 15rem;
+                        letter-spacing: 2rem;
+                        margin-bottom: 15rem;
+                        padding-bottom: 3rem;
+                        width: 100%;
+                        border-bottom: 1rem solid rgba(132, 132, 132, 0.612);
+                    }
+
+                    ul {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        li {
+                            margin-right: 20rem;
+                            margin-bottom: 10rem;
+
+                            a {
+                                background: center no-repeat;
+                                background-size: cover !important;
+                                // background-color: #1f1f3a;
+                                width: 156rem;
+                                height: 80rem;
+                                display: block;
+                                opacity: 0.8;
+                                border-radius: 5rem;
+                            }
+
+                            h3 {
+                                color: rgba(210, 199, 199, 0.964);
+                                font-size: 13rem;
+                                margin-top: 8rem;
+                                width: 100%;
+                                text-align: center;
+                                letter-spacing: 2rem;
+                            }
+
+                            &:nth-last-child(1) {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+
+
+                }
+
+                .class1 {
+                    .item1 {
+                        background: url('../img/整容.jpg');
+                    }
+
+                    .item2 {
+                        background: url('../img/儿童中心.jpg');
+                    }
+
+
+
+                }
+
+                .class2 {
+                    .item1 {
+                        background: url('../img/小蜜蜂.jpg');
+                    }
+
+                    .item2 {
+                        background: url('../img/时钟.jpg');
+                        background-position: -10px 0;
+                    }
+
+                    .item3 {
+                        background: url('../img/王者手风琴.jpg');
+                    }
+
+                }
+
+                .class3 {
+                    .item1 {
+                        background: url('../img/MP3.jpg');
+                    }
+                }
+
+                .class4 {
+                    .item1 {
+                        background: url('../img/海绵宝宝.jpg');
+                    }
+
+                    .item2 {
+                        background: url('../img/别踩白块.jpg');
+                    }
+                }
+
+                .class5 {
+                    .item1 {
+                        background: url('../img/三级联动.jpg');
+                    }
+
+                    .item2 {
+                        background: url('../img/九宫格抽奖.jpg');
+                    }
+
+                    .item3 {
+                        background: url('../img/卡片记忆.jpg');
+                    }
+                }
+
+                // .class3 {
+                //     .item1 {
+                //         // background-image: url('../img/');
+                //     }
+                // }
+
+            }
+
+
+        }
+
+
+
+    }
+
+
+
+
+    .starbgr {
+        width: 100vw;
+        height: 100vh;
+        background-image: linear-gradient(#000000, #1f1f3a, #3b2f4a);
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        opacity: 1;
+
+        .comet {
+
+            position: absolute;
+            width: 200rem;
+            height: 2rem;
+            border-radius: 20% 20% / 50% 50%;
+            background-image: linear-gradient(90deg, #cccbcb 0%, #3434346c);
+        }
+
+
+
+        svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        svg circle {
+            fill: white;
+
+        }
+
+        #svg1 circle {
+            animation: twinkle 3s infinite linear alternate;
+        }
+
+        #svg2 circle {
+            animation: twinkle2 2s infinite linear alternate;
+        }
+
+        #svg3 circle {
+            animation: twinkle3 4s infinite linear alternate-reverse;
+        }
+
+        #svg6 circle {
+            animation: twinkle3 4s infinite linear alternate;
+        }
+
+        #svg4 circle {
+            animation: twinkle2 2s infinite linear alternate-reverse;
+        }
+
+        #svg5 circle {
+            animation: twinkle 3s infinite linear alternate-reverse;
+        }
+
+
+        @keyframes twinkle {
+            0% {
+                r: 1.3;
+                opacity: 1;
+            }
+
+            100% {
+                r: 0.6;
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes twinkle2 {
+            0% {
+                r: 1.4;
+                opacity: 1;
+            }
+
+            100% {
+                r: 0.7;
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes twinkle3 {
+            0% {
+                r: 1.1;
+                opacity: 1;
+            }
+
+            100% {
+                r: 0.6;
+                opacity: 0.2;
+            }
+        }
+    }
+
+    .lunbo {
+        width: 100vw;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform-style: preserve-3d;
+
+
+        ul {
+            transform-style: preserve-3d;
+            position: relative;
+            transform-origin: center center 172rem;
+            width: 350rem;
+            height: 200rem;
+            background-color: black;
+            transform: rotateX(5deg);
+
+
+        }
+
+        li {
+            opacity: 0.8;
+            border: 1rem solid gray;
+            width: 350rem;
+            height: 200rem;
+            border: 1rem solid gray;
+            position: absolute;
+            transform-style: preserve-3d;
+            left: 0;
+            top: 0;
+            display: block;
+            background-size: cover;
+            background-position: center;
+
+            &:nth-child(1) {
+                // background-image: url('../img/微信图片_20220912180011.jpg');
+            }
+
+            &:nth-child(2) {
+                background-image: url('../img/MP3.jpg');
+            }
+
+            &:nth-child(3) {
+                background-image: url('../img/时钟.jpg');
+            }
+
+            &:nth-child(4) {
+                background-image: url('../img/别踩白块.jpg');
+            }
+
+            &:nth-child(5) {
+                background-image: url('../img/儿童中心.jpg');
+            }
+
+            &:nth-child(6) {
+                background-image: url('../img/整容.jpg');
+            }
+
+        }
+
+
+    }
+}

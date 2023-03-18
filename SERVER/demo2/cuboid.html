@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+
+
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            perspective: 800px;
+        }
+
+        .bgr {
+            width: 100vw;
+            height: 100vh;
+            background-image: url("./image/myWorld.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            filter: blur(10px);
+            z-index: 0;
+            pointer-events: none;
+            transform: translateZ(-400px) scale(2);
+
+
+        }
+ 
+        .box222 {
+            width: 500px;
+            height: 500px;
+            background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+
+            transform: rotateX(60deg);
+            position: relative;
+        }
+
+        .box111 {
+            left: 300px;
+            top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bgr"></div>
+    <div class="box222"></div>
+
+    <script>
+        var box = $(".box222");
+
+        function cuboid(xlength, xwidth, xheight, jqfather, clsName = "baba", color = "rgb(0 255 161 / 57%)", left = 0, top = 0, translateZ = 0) {
+            var bottom = $("<div></div>");
+            var fu = jqfather.attr('class').split(" ")[0];
+            bottom.addClass(fu + "bottom").addClass("bottom");
+            var range = "." + bottom.attr('class') + " ";
+            bottom.css({
+                "width": xlength + "px",
+                "height": xwidth + "px",
+                "transform-style": "preserve-3d",
+                "position": "absolute",
+                "left": left + "px",
+                "top": top + "px",
+                "transform": "translateZ(" + translateZ + "px)"
+
+            });
+            jqfather.append(bottom);
+            bottom.append($("<div></div>").addClass("up"));
+            bottom.append($("<div></div>").addClass("left"));
+            bottom.append($("<div></div>").addClass("right"));
+            bottom.append($("<div></div>").addClass("back"));
+            bottom.append($("<div></div>").addClass("front"));
+            var set = range + ".right," + range + ".left," + range + ".up," + range + ".back," + range + ".front";
+            $(".bottom .right,.bottom .left,.bottom .up,.bottom .back,.bottom .front").css({
+                "position": "absolute",
+                "border": '0.01px solid black',
+                "box-sizing": "border-box",
+            });
+            console.log(bottom.parent()[0]);
+            bottom.parent().css({
+                "transform-style": "preserve-3d",
+
+            });
+            $("." + fu + " .bottom").css({
+                "transform-origin": "center center " + xheight / 2 + "px",
+                "width": xlength,
+                "height": xwidth,
+                "background-color": color,
+            });
+            $("." + fu + " .bottom .left").css({
+                "height": "inherit",
+                "width": xheight,
+                "background-color": color,
+                "transform-origin": "0 center",
+                "transform": "rotateY(-90deg)",
+            });
+            $("." + fu + " .bottom .right").css({
+                "width": xheight,
+                "height": xwidth,
+                "background-color": color,
+                "position": "absolute",
+                "right": "0",
+                "transform-origin": xheight + "px" + " center",
+                "transform": "rotateY(90deg)",
+            });
+            $("." + fu + " .bottom .back").css({
+                "width": "inherit",
+                "height": xheight,
+                "background-color": color,
+                "transform-origin": "center 0px",
+                "transform": "rotateX(90deg)",
+            });
+            $("." + fu + " .bottom .up").css({
+                "width": "inherit",
+                "height": "inherit",
+                "background-color": color,
+                "transform": "translateZ(" + xheight + "px)",
+            });
+            $("." + fu + " .bottom .front").css({
+                "width": "inherit",
+                "height": xheight + "px",
+                "background-color": color,
+                "transform-origin": "center " + xheight + "px",
+                "position": "absolute",
+                "bottom": "0",
+                "transform": "rotateX(-90deg)",
+            });
+            clsName ? $(".bottom")[0].className = clsName : 1;
+        }
+        cuboid(50, 50, 50, box, "rgb(0 255 161 / 57%)", "box111", 220, 220, 50);
+        var box2 = $(".box111");
+
+        function movement(moveobj) {
+            box = $(moveobj)[0];
+            var savex = 0;
+            var savey = 0;
+            document.body.onmousedown = function (event, e) {
+                var inipagex = event.pageX;
+                var inipagey = event.pageY;
+                document.body.onmousemove = function (e) {
+                    var movex = e.pageX - inipagex;
+                    var movey = e.pageY - inipagey;
+                    // box.style.transform = "rotateX(" + (savey - movey) / 100 + "deg)" + "rotatey(" + (savex + movex) / 100 + "deg)"
+                    box.style.transform = "rotateX(" + (savey - movey) / 100 + "deg)" + "rotatez(" + (-(savex +
+                        movex)) / 100 + "deg)";
+                    savex = (savex + movex);
+                    savey = (savey - movey);
+                    movex = 0;
+                    movey = 0;
+                };
+            };
+
+            document.body.onmouseup = function () {
+                console.log("up");
+                document.body.onmousemove = null;
+            };
+        }
+        movement(box);
+
+
+        cuboid(20, 23, 50, $(".box222"))
+    </script>
+</body>
+
+</html>

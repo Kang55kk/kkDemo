@@ -1,0 +1,85 @@
+body {
+  height: 100vh;
+}
+@media screen and (max-width: 540px) {
+  .page {
+    flex-direction: column;
+  }
+}
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.page .adjustBox {
+  margin-left: 50rem;
+  height: 110%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.page .adjustBox .item {
+  flex-shrink: 0;
+}
+.page .adjustBox .item input {
+  width: 200rem;
+  cursor: pointer;
+}
+.page .seal {
+  width: 500rem;
+  height: 500rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: blur(1rem);
+}
+.page .seal .circle {
+  border: 10rem solid red;
+  border-radius: 50%;
+  width: 200rem;
+  height: 200rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-90deg);
+}
+.page .seal .circle .circle2 {
+  width: 180rem;
+  height: 180rem;
+  position: relative;
+  transform-origin: center;
+}
+.page .seal .circle .circle2 .center {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: red;
+  width: 50rem;
+  height: 50rem;
+  transform-origin: center;
+  transition: all 0.1s;
+  transform: scale(1) rotate(90deg);
+}
+.page .seal .circle .circle2 .center .star {
+  font-size: 50rem;
+  margin-bottom: -5rem;
+}
+.page .seal .circle .circle2 .center .text {
+  font-size: 17rem;
+}
+.page .seal .circle .circle2 .character {
+  color: red;
+  font-size: 70rem;
+  width: 75rem;
+  height: 75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transform: rotate(0deg);
+  left: calc(50% - 12.5rem);
+}

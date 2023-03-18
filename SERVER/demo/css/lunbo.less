@@ -1,0 +1,99 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    perspective: 800rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    overflow: hidden;
+
+
+
+    .glass {
+        position: absolute;
+        pointer-events: initial;
+        z-index: 1;
+        display: none;
+    }
+}
+
+.lunbo {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    transition: all 0.3s;
+    transform: scale(0.5);
+
+    .box {
+        pointer-events: none;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform-style: preserve-3d;
+        transform: rotateX(-25deg);
+
+        div {
+            pointer-events: none;
+        }
+    }
+
+    ul {
+        transform-style: preserve-3d;
+        position: relative;
+        // transform-origin: center center 87.5rem;
+        width: 175rem;
+        height: 300rem;
+        // background-color: black;
+        padding: 0;
+        color: white;
+
+    }
+
+    li {
+        width: 175rem;
+        height: 300rem;
+        position: absolute;
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+        display: block;
+        background-size: cover;
+        background-position: center;
+        background-color: white;
+        box-shadow: 0 0 15px #fffd;
+
+        &:nth-child(1) {
+            background-image: url('../image/3d相册/0.jpg');
+        }
+
+        &:nth-child(2) {
+            background-image: url('../image/3d相册/1.jpg');
+        }
+
+        &:nth-child(3) {
+            background-image: url('../image/3d相册/2.jpg');
+        }
+
+        &:nth-child(4) {
+            background-image: url('../image/3d相册/3.jpg');
+        }
+
+        &:nth-child(5) {
+            background-image: url('../image/3d相册/4.jpg');
+        }
+
+        &:nth-child(6) {
+            background-image: url('../image/3d相册/5.jpg');
+        }
+
+    }
+
+
+}

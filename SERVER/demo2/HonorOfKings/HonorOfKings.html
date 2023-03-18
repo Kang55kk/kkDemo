@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王者荣耀角色</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to right, #a8edea 0%, #fed6e3 100%);
+            background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+        }
+
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul {
+            width: 700px;
+            display: flex;
+            height: 90px;
+            flex-wrap: nowrap;
+            background-color: rgb(30, 66, 105);
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        li {
+            width: 70px;
+            height: 70px;
+            cursor: pointer;
+            transition: all 0.1s;
+            background-size: cover;
+            border-radius: 8px;
+        }
+
+        li:nth-child(1) {
+            width: 227px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wangzhe">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        function judge() {
+            let str = (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) ? 'app' : 'pc';
+            return str;
+        }
+
+        if (judge() == "app") {
+            document.getElementsByClassName("wangzhe")[0].style.transform = "scale(0.8) rotate(90deg)";
+        }
+        var lis = document.querySelectorAll("li");
+        lis.forEach(function (ele, i) {
+            ele.onmouseenter = function tolong() {
+                lis.forEach(function (ele2, index) {
+                    if (ele2 == this) {
+                        ele2.style.width = 227 + 'px';
+                        ele2.style.backgroundImage = 'url("' + arr2[index] + '.png")';
+                    } else {
+                        ele2.style.width = 70 + 'px';
+                        ele2.style.backgroundImage = 'url("' + arr1[index] + '.png")';
+                    }
+                }, this);
+            };
+        });
+        var arr1 = [11, 12, 13, 14, 15, 16, 17];
+        var arr2 = [21, 22, 23, 24, 25, 26, 27];
+
+        function smallphoto() {
+            lis.forEach(function (ele, i) {
+                lis[i].style.backgroundImage = 'url("' + arr1[i] + '.png")';
+            });
+        }
+        smallphoto();
+        document.querySelector("li:nth-child(1)").style.backgroundImage = 'url("' + arr2[0] + '.png")';
+    </script>
+</body>
+
+</html>

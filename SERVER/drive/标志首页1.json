@@ -1,0 +1,211 @@
+{
+    "cacheTime": 28800,
+    "checkTime": 14400,
+    "data": {
+        "itemList": [
+            
+            {
+                "count": 90,
+                "id": 23,
+                "imageList": [
+                    "http://exam-room.mc-cdn.cn/exam-room/2022/09/23/17/05845104814443e496b5973f97f6f849.png",
+                    "http://exam-room.mc-cdn.cn/exam-room/2022/09/23/17/a8dd410cc32b4c03918aacc4315f64db.png",
+                    "http://exam-room.mc-cdn.cn/exam-room/2022/09/23/17/79ebcb507fcf40b28c8620eb2f56c137.png",
+                    "http://exam-room.mc-cdn.cn/exam-room/2022/09/23/17/987dfd4d17d446388c9c0ddd907ace41.png"
+                ],
+                "name": "10月新规标志合辑"
+            },
+            {
+                "count": 55,
+                "id": 1,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/6aa9b285677842aa8fba371fe0757fe8.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/8134eeefe65c466685ec08318b376b97.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/7769786d6ad94dd6ae801d839ab6a598.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/0ac30dcb6ffd4e8dbb5cdb099177b2dd.png"
+                ],
+                "name": "禁令标志"
+            },
+            {
+                "count": 92,
+                "id": 2,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/7fd369730cc44dc5aafb0d602a1ac080.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/d3dd4d8b6e6347bda256f3aeb873da59.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/a570daf0756c4702acc897e0a6729d15.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/8b7b535a194c4564919e82f349a24577.png"
+                ],
+                "name": "警告标志"
+            },
+            {
+                "count": 69,
+                "id": 3,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/b91e46891fa9422d9c828e6191ac7751.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/5af9f5eeaa4d4256915d78a1441a39ff.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/89bee88c2081473eb591fe72b84d0b67.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/44d90be1c2124f94ad27bf312de506c7.png"
+                ],
+                "name": "指示标志"
+            },
+            {
+                "count": 220,
+                "id": 4,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/cc43ed0da0ce448facf1de2914331b43.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/c055fbaaca7a4cde8e10d94076fe2a63.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/12bf5367d4d04e6bb2525cd8e1751bd8.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/814146b680904fd18a33c35e8a148e38.png"
+                ],
+                "name": "指路标志"
+            },
+            {
+                "count": 8,
+                "id": 5,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/04df30d1f54840638aca0767ca3346b4.jpg",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/cb5de68f45ad428e83838bb7bcb9e369.jpg",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/bb25325b14674baf85a26dcfe6351462.jpg",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/35892a9d0795406ea71536e7e09c6741.jpg"
+                ],
+                "name": "交警手势信号"
+            },
+            {
+                "count": 29,
+                "id": 6,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/f478dc99b77144d88dc0a5f368e22ba5.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/ac28a64ea35d47c983fb3368e9d9b109.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/f1f14031228a4a0785a92f789c7afbd0.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/8a164b4a30bc452c91a949db84500275.png"
+                ],
+                "name": "旅游区标志"
+            },
+            {
+                "count": 26,
+                "id": 7,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/91ef4c96ac69467eab2403e0b4e4e1e8.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/33241c08cb5f4941a711dcefe57b7cb4.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/170e445f0d6048eb8ab646b9bf946aa8.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/06a278180d1047858b2df7ebbcab3571.png"
+                ],
+                "name": "道路施工安全标志"
+            },
+            {
+                "count": 39,
+                "id": 8,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/c86778264fd44160bc9aa488bf4d7528.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/1e3f8199392c4b31bdc1501b5ce4ebaa.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/2b3a7ac2e71346519c18ba8b9cfc1b99.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/2e8c9b2bd54249ca8960f22d6ecc210d.png"
+                ],
+                "name": "辅助标志"
+            },
+            {
+                "count": 25,
+                "id": 9,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/263d5d0a65764e5a9296585026f9a86e.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/38e48af3958f448e86ced7fd63a2268d.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/5d478da1843944a69bec7807cdb41700.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/8550b3be7b7c4e809df95be7115e758e.png"
+                ],
+                "name": "禁止标线"
+            },
+            {
+                "count": 16,
+                "id": 10,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/c620e1f12d3c447083de8badc3742aeb.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/05b31f95201e4300bc264402066c8683.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/7303d5912686442585462743070012da.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/31a884ec190f43cda9ecf1a8bd106523.png"
+                ],
+                "name": "警告标线"
+            },
+            {
+                "count": 54,
+                "id": 11,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/84bc724ea6794229a8d843cb4f2fa4d7.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/205de7fc89674f6e8be51bb71e268ce9.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/e4c564543b7e4085b1fa48b592bfd00b.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/e96fb37ee4f94411b798f3a153d3078b.png"
+                ],
+                "name": "指示标线"
+            },
+            {
+                "count": 39,
+                "id": 12,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/12a0201b02e34f508b4a2f6943a034c2.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/133d18dd74d64cddb3eb8d0101cce859.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/18/18/43e8bf5421954fb4a9fa08cd14006d1a.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/11/d8d2a70472f34934a54ccd2f7596f355.png"
+                ],
+                "name": "交通事故图解"
+            },
+            {
+                "count": 21,
+                "id": 13,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/6722c679ebd848f3bf413f34d29ffd8a.jpg",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/0c014c1354404d11bb9e19de7f5cc8e7.jpg",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/15e11dff2625475d8414460b921464a3.jpg",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/e8c1790f10f0483890356ca9e5633b1e.jpg"
+                ],
+                "name": "汽车仪表盘指示灯"
+            },
+            {
+                "count": 6,
+                "id": 14,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/33ea74ebd26e43b9ac9974d4cc67ee80.jpg",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/50eef62a8901411a8fffd9a00ad45bc7.jpg",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/34b9a9081a954de09174a984b8887954.jpg",
+                    "http://exam-room.image.mucang.cn/exam-room/2021/05/19/12/17adaa1c1b294a1495239fb4d383729e.jpg"
+                ],
+                "name": "车内功能按键"
+            },
+            {
+                "count": 20,
+                "id": 15,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/318b116c155e4803920177b44e3f44b7.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/008fa4cba7f948c1adba8738306ac7c9.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/fc3f66a80a5c483dbd65d62063fc5403.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/16/f81e3a6ef79f4da0ab1e1da968a0e67c.png"
+                ],
+                "name": "色盲色弱检测"
+            },
+            {
+                "count": 15,
+                "id": 16,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/17/0f957e42a8bc47ad91f4e65a14657d83.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/17/b1027653e8864b14ba05212c41f7fcf2.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/17/95b910ec35244f9b9891b8c100256929.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/17/2608c3fe77aa4b938cdb91ac92c375ea.png"
+                ],
+                "name": "道路施工安全设施设置示例"
+            },
+            {
+                "count": 6,
+                "id": 17,
+                "imageList": [
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/17/2d8682cca1a0439095a68922117789b2.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/17/7a4a3ae5044b45c3a048b0c67c85c0b2.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/17/9d8c564dca904b7fbebd3a79fa94067e.png",
+                    "http://exam-room.image.mucang.cn/exam-room/2019/02/11/17/3bef4db62e2c41e2be2b3d43f250336c.png"
+                ],
+                "name": "其他标线"
+            }
+        ]
+    },
+    "eTag": null,
+    "errorCode": 0,
+    "message": null,
+    "success": true
+}

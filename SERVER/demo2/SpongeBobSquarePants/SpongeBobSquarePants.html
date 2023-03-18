@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海绵宝宝</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-90deg, #29bdd9 0%, #276ace 100%);
+            background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+        }
+
+        .main {
+            width: 480px;
+            height: 270px;
+            background-repeat: no-repeat;
+            position: relative;
+            background-position: center;
+            border-radius: 10px;
+        }
+
+        .mask {
+            background-color: rgba(0, 0, 0, 0.482);
+            height: 270px;
+            width: 480px;
+            position: absolute;
+            cursor: pointer;
+            display: none;
+            border-radius: 10px;
+
+        }
+
+        .jindutiao {
+            width: 480px;
+            height: 20px;
+            background-color: rgba(0, 0, 0, 0.759);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 5px;
+            transition: all .3s;
+            opacity: 0;
+        }
+
+        .jindutiao .waibai {
+            height: 2px;
+            width: 450px;
+            background-color: rgba(226, 221, 221, 0.596);
+        }
+
+        .jindutiao .waibai .neibai {
+            height: 2px;
+            width: 200px;
+            background-color: rgb(226, 221, 221);
+        }
+
+        .danmu {
+            width: 480px;
+            height: 50px;
+            position: absolute;
+            top: 30px;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .danmu span {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.753);
+            display: block;
+            width: 336px;
+        }
+
+        .shichang {
+            position: absolute;
+            left: 10px;
+            bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="haimianbb">
+        <div class="main">
+
+            <div class="mask">
+                <div class="danmu"></div>
+                <div class="shichang" style="color: white;">21:43</div>
+                <div class="jindutiao">
+                    <div class="waibai">
+                        <div class="neibai"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //html根据屏幕宽度设置根元素font-size
+        document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+        window.addEventListener("resize", (e) => {
+            document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+        });
+
+
+        //判断手机端还是PC端,html文件
+        function judge() {
+            let str = (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) ? 'app' : 'pc';
+            return str;
+        }
+
+        if (judge() == "app") {
+            document.getElementsByClassName("haimianbb")[0].style.transform = "rotate(90deg)";
+        }
+        var mains = document.querySelector(".main");
+        var masks = document.querySelector(".mask");
+        var danmus = document.querySelector(".danmu");
+        var dm = [
+            "章鱼哥还是没有胜过强风暴雨(doge)",
+            "日本裁判",
+            "肯定是日本裁判",
+            "海绵宝宝笑死我了",
+            "黑人小哥",
+            "堡垒之夜",
+            "最喜欢的一集",
+            "我也是最喜欢的一集",
+            "喜欢",
+            "我怎么觉得派大星这个配音我在神奇宝贝里听过", //21字
+            "我看见你了",
+            "但凡章鱼哥早点回去都不至于这样",
+            "这……这我还真有可能“模仿”",
+            "为什么非要执着于台配或者央配呢",
+            "派总依旧稳定输出",
+            "包租公～",
+            "为什么台配的海绵宝宝跟低能儿似的",
+            "井字游戏，其实可以先手必胜的",
+            "我小时候就看的台配",
+            "终于找到了",
+        ];
+        var neibais = document.querySelector(".neibai");
+        var index = [
+            0, 8, 14, 20, 25, 31, 39, 50, 61, 67, 73, 80, 87, 93, 104, 116, 126, 132, 138, 144, 152, 159, 170, 177,
+            186,
+            196, 207, 215, 224, 231, 238, 244, 249, 255, 260, 265, 271, 278, 283, 290, 297, 303, 311, 319, 330, 335,
+            350,
+            360, 365, 372, 383, 390, 401, 406, 411, 421, 428, 434, 444, 450, 457, 467, 472, 481, 487, 497, 502, 514,
+            520,
+            534, 542, 547, 555, 562, 568, 575, 581, 587, 592, 598, 605, 610, 615, 621, 633, 642, 650, 658, 668, 677,
+            690,
+            696, 702, 709, 715, 720, 733, 740, 746, 751, 759, 767, 776, 782, 790, 798, 804, 814, 826, 833, 840, 850,
+            856,
+            863, 872, 878, 886, 896, 903, 911, 918, 929, 937, 948, 953, 959, 965, 973, 979, 985, 994, 1001, 1015,
+            1022,
+            1028, 1034, 1040, 1047, 1059, 1064, 1071, 1077, 1084, 1090, 1099, 1105, 1111, 1121, 1130, 1139, 1150,
+            1156,
+            1162, 1171, 1178, 1184, 1191, 1197, 1203, 1210, 1216, 1221, 1228, 1233, 1242, 1250, 1260, 1272, 1282,
+            1292,
+            1297,
+        ];
+        var jindutiao = document.querySelector(".jindutiao");
+        function showpho(n) {
+            if (n <= 100) {
+                mains.style.backgroundImage = "url('./1.jpg')";
+                mains.style.backgroundPosition = (-480 * (n % 10 - 1)) + 'px ' + (-270 * Math.floor(n / 10)) + 'px';
+            } else {
+                n -= 100;
+                mains.style.backgroundImage = "url('./2.jpg')";
+                mains.style.backgroundPosition = (-480 * (n % 10 - 1)) + 'px ' + (-270 * Math.floor(n / 10)) + 'px';
+            }
+        }
+        function showfm() {
+            mains.style.backgroundImage = "url('./fengmian.jpg')";
+            mains.style.backgroundPosition = "center";
+        }
+        showfm();
+
+        function Dot(n) { //n为第几条弹幕
+            this.left = 480;
+            this.top = (((n + 1) % 2)) * 25;
+            this.node = document.createElement("span");
+            danmus.appendChild(this.node);
+            this.node.innerText = dm[n];
+            this.draw();
+            this.speed = Math.ceil(dm[n].length / 20) + 1.2;
+        }
+        Dot.prototype.draw = function () {
+            this.node.style.left = this.left + "px";
+            this.node.style.top = this.top + "px";
+            var id = setInterval(() => {
+                this.left -= this.speed;
+                this.node.style.left = this.left + "px";
+                this.node.style.top = this.top + "px";
+                if (this.left < -836) {
+                    danmus.removeChild(this.node);
+                    clearInterval(id);
+                }
+            }, 30);
+        };
+
+        function creatDanmu() {
+            var nums = -1;
+            var id2 = setInterval(() => {
+                nums++;
+                new Dot(nums % 20);
+            }, 2000);
+        }
+
+        var id3;
+        creatDanmu();
+        mains.onmouseenter = function () {
+            masks.style.display = "block";
+            id3 = setTimeout(() => {
+                jindutiao.style.opacity = 1;
+                masks.onmousemove = function () {
+                    neibais.style.width = event.offsetX * 0.9375 + 'px';
+                    console.log(event.offsetX);
+                    index.forEach(function (ele, i) {
+                        if (Math.floor(event.offsetX * 1297 / 480) < ele && Math.floor(event.offsetX * 1297 /
+                            480) >= index[i - 1]) {
+                            showpho(i);
+                        }
+                    });
+                };
+            }, 1000);
+        };
+
+        mains.onmouseleave = function () {
+            jindutiao.style.opacity = 0;
+            masks.style.display = "none";
+            masks.onmousemove = null;
+            showfm();
+        }
+    </script>
+</body>
+
+</html>

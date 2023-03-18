@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="font-size: calc(100vw/1536);">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box2 {
+            position: absolute;
+            left: 81%;
+            top: 18%;
+            width: 200rem;
+            height: 2px;
+            border-radius: 20% 20% /50% 50%;
+            background-image: linear-gradient(90deg, #cccbcb 0%, #3434346c);
+            transform: rotate(12deg);
+        }
+
+        .box {
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(#000000, #1f1f3a, #3b2f4a);
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        svg circle {
+            fill: white;
+
+        }
+
+        #svg1 circle {
+            animation: twinkle 10s infinite linear alternate;
+        }
+
+        #svg2 circle {
+            animation: twinkle2 8s infinite linear alternate;
+        }
+
+        #svg3 circle {
+            animation: twinkle3 8s infinite linear alternate-reverse;
+        }
+
+        #svg6 circle {
+            animation: twinkle3 8s infinite linear alternate;
+        }
+
+        #svg4 circle {
+            animation: twinkle2 8s infinite linear alternate-reverse;
+        }
+
+        #svg5 circle {
+            animation: twinkle 10s infinite linear alternate-reverse;
+        }
+
+
+        @keyframes twinkle {
+            0% {
+                r: 1.1;
+                opacity: 0.6;
+            }
+
+            100% {
+                r: 1;
+                opacity: 0. 2;
+            }
+        }
+
+        @keyframes twinkle2 {
+            0% {
+                r: 1.1;
+                opacity: 0.6;
+            }
+
+            100% {
+                r: 1;
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes twinkle3 {
+            0% {
+                r: 1.1;
+                opacity: .6;
+            }
+
+            100% {
+                r: 1;
+                opacity: 0.2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="box2"></div> -->
+    <div class="box starbgr">
+        <svg width="100%" height="100%" id="svg1"></svg>
+        <svg width="100%" height="100%" id="svg2"></svg>
+        <svg width="100%" height="100%" id="svg3"></svg>
+        <svg width="100%" height="100%" id="svg4"></svg>
+        <svg width="100%" height="100%" id="svg5"></svg>
+        <svg width="100%" height="100%" id="svg6"></svg>
+        <div class="box2"></div>
+    </div>
+</body>
+
+<script>
+    function rdm(x, y) {
+        return (Math.random() * (y - x) + x).toFixed(2);
+    }
+    (function creStar() {
+        for (let i = 0; i < 30; i++) {
+            let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                cx: rdm(0, 100) + "%",
+                cy: rdm(0, 100) + "%",
+                r: 1.1,
+            });
+            $("#svg1").append(star);
+        }
+        for (let i = 0; i < 100; i++) {
+            let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                cx: rdm(0, 100) + "%",
+                cy: rdm(0, 100) + "%",
+                r: 1.1,
+            });
+            $("#svg2").append(star);
+        }
+        for (let i = 0; i < 100; i++) {
+            let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                cx: rdm(0, 100) + "%",
+                cy: rdm(0, 100) + "%",
+                r: 1,
+            });
+            $("#svg3").append(star);
+        }
+        for (let i = 0; i < 100; i++) {
+            let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                cx: rdm(0, 100) + "%",
+                cy: rdm(0, 100) + "%",
+                r: 1.1,
+            });
+            $("#svg4").append(star);
+        }
+        for (let i = 0; i < 30; i++) {
+            let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                cx: rdm(0, 100) + "%",
+                cy: rdm(0, 100) + "%",
+                r: 1.1,
+            });
+            $("#svg5").append(star);
+        }
+        for (let i = 0; i < 100; i++) {
+            let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                cx: rdm(0, 100) + "%",
+                cy: rdm(0, 100) + "%",
+                r: 1,
+            });
+            $("#svg6").append(star);
+        }
+    })()
+
+
+</script>
+
+</html>

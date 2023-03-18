@@ -1,0 +1,79 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  perspective: 800rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  overflow: hidden;
+}
+body .glass {
+  position: absolute;
+  pointer-events: initial;
+  z-index: 1;
+  display: none;
+}
+.lunbo {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: all 0.3s;
+  transform: scale(0.5);
+}
+.lunbo .box {
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transform: rotateX(-25deg);
+}
+.lunbo .box div {
+  pointer-events: none;
+}
+.lunbo ul {
+  transform-style: preserve-3d;
+  position: relative;
+  width: 175rem;
+  height: 300rem;
+  padding: 0;
+  color: white;
+}
+.lunbo li {
+  width: 175rem;
+  height: 300rem;
+  position: absolute;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  box-shadow: 0 0 15px #fffd;
+}
+.lunbo li:nth-child(1) {
+  background-image: url('../image/3d相册/0.jpg');
+}
+.lunbo li:nth-child(2) {
+  background-image: url('../image/3d相册/1.jpg');
+}
+.lunbo li:nth-child(3) {
+  background-image: url('../image/3d相册/2.jpg');
+}
+.lunbo li:nth-child(4) {
+  background-image: url('../image/3d相册/3.jpg');
+}
+.lunbo li:nth-child(5) {
+  background-image: url('../image/3d相册/4.jpg');
+}
+.lunbo li:nth-child(6) {
+  background-image: url('../image/3d相册/5.jpg');
+}
+/*# sourceMappingURL=./lunbo.css.map */

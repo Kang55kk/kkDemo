@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="font-size: calc(100vw/1536);">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="./quote/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./quote/360.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14rem;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18rem;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+
+    <div id="header" class="header">
+        <div class="headerContent">
+            <img class="logoImg fl" src="https://se3.360simg.com/t01e2879d675f7f8e98.png" alt="">
+            <span class="linkBox fr">
+                <a class="links fl" href="https://bbs.360.cn/forum-142-1.html" target="_blank">论坛</a>
+                <a class="links fl" href="https://ext.chrome.360.cn/webstore" target="_blank">扩展</a>
+                <a class="links fl" href="https://browser.360.cn/ee/mac/index.html" target="_blank">Mac版</a>
+                <span class="clearfix"></span>
+            </span>
+            <span class="clearfix"></span>
+        </div>
+    </div>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="x-cover">
+                    <div class="title-box">
+                        <p class="changkuai">畅快浏览 极致体验</p>
+                        <div class="quanxin">全新Chrome内核浏览器，性能更强，速度更快</div>
+                        <span class="alineCenter downloadBtn word-86-content-show-hide fluent-title-show">
+                            <a href="" id="loadnew">32位版本</a>
+                            <a href="" id="loadnew64"><img src="https://se3.360simg.com/t0102fdf3201e9fcf21.png">64位版本
+                                <p>NEW</p>
+                            </a>
+                        </span>
+                    </div>
+                    <img class="fluent-img fluent-img-ball1 fluent-img-ball-animate"
+                        src="https://se1.360simg.com/t0141db0679fb1bf286.png" alt="左侧星球">
+                    <img class="fluent-img fluent-img-ball2 fluent-img-ball-animate"
+                        src="https://se2.360simg.com/t01cbd552d7384e1cb3.png" alt="右侧星球">
+                    <img class="fluent-img fluent-img-airship" src="https://se2.360simg.com/t01c656ec605cf238d0.png"
+                        alt="飞船">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="x-jisu"">
+                    <div class=" word-content word-content-1 fast-word-content word-content-show">
+                    <p class="bigTitleWord">极速</p>
+                    <div class="line"></div>
+                    <p class="midTitleWord">全新Chromium内核</p>
+                    <p class="smaTitleWord smaTitle">性能强劲，快如闪电。</p>
+                    <a href="" class="alineCenter smallDownloadBtn"></a>
+                </div>
+                <video autoplay="" loop="" muted="">
+                    <source src="https://s2.ssl.qhres2.com/static/dfeefadde568eab0.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-slide swiper-slide-cool swiper-slide-active" style="height: 717rem;">
+                <div class="word-content word-content-2 cool-word-content word-content-show">
+                    <p class="bigTitleWord">极酷</p>
+                    <div class="line"></div>
+                    <p class="midTitleWord">暗夜炫黑模式</p>
+                    <p class="smaTitleWord smaTitle">定义酷，定义你。</p>
+                    <a href="" class="alineCenter smallDownloadBtn"></a>
+                </div>
+                <video autoplay="" loop="" muted="">
+                    <source src="https://s3.ssl.qhres2.com/static/9bebcedf292f327e.mp4" type="video/mp4">
+                    当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+                </video>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-slide swiper-slide-safe swiper-slide-active">
+                <div class="word-content word-content-3 safe-word-content word-content-show">
+                    <p class="bigTitleWord">极安全</p>
+                    <div class="line"></div>
+                    <p class="midTitleWord">DNS加密防劫持</p>
+                    <p class="smaTitleWord smaTitle">安全升级，肆意无忌。</p>
+                    <a href="" class="alineCenter smallDownloadBtn"></a>
+                </div>
+                <video autoplay="" loop="" muted="">
+                    <source src="https://s1.ssl.qhres2.com/static/fdf92889c539303c.mp4" type="video/mp4">
+                    当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+                </video>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-slide swiper-slide-screen swiper-slide-active">
+                <div class="word-content word-content-4 screen-word-content word-content-show">
+                    <p class="bigTitleWord">极视界</p>
+                    <div class="line"></div>
+                    <p class="midTitleWord">4K高清视频播放</p>
+                    <p class="smaTitleWord smaTitle">还原真实之美 ，尽显万物本色。</p>
+                    <a href="" class="alineCenter smallDownloadBtn"></a>
+                </div>
+                <video autoplay="" loop="" muted="">
+                    <source src="https://s1.ssl.qhres2.com/static/7e7f0ec4a0cc7a66.mp4" type="video/mp4">
+                    当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+                </video>
+                <div id="footer" class="footer">Copyright © 2005-
+                    <script>
+                        var crdate = new Date;
+                        document.write(crdate.getFullYear())
+                    </script>2022 360.CN All Rights Reserved 360互联网安全中心
+                    <a target="_blank" href="http://www.360.cn/privacy/v3/bps360jsllqWindowsb.html">隐私政策</a>
+                    <a target="_blank" href="https://beian.miit.gov.cn">京ICP证080047号[京ICP备08010314号-6]</a>
+                    <br>
+                    <span>
+                        网站举报电话：4006693600 举报邮箱：<a href="mailto:kefu@360.cn">kefu@360.cn</a> 互联网违法和不良信息举报中心：<a
+                            target="_blank" href="https://www.12377.cn/">https://www.12377.cn</a>
+                    </span>
+                    <br>
+                    <a target="_blank"
+                        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002000006"> <img
+                            src="https://se1.360simg.com/t01d8eda6e551cf2615.png"
+                            style="vertical-align: middle; border:none;" alt=""> 京公网安备 11000002000006号</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="./quote/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            direction: "vertical",
+            slidesPerView: 1,
+            speed: 1000,
+            // loop:true,
+            spaceBetween: 0,
+            mousewheel: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+
+    <script>
+        //html根据屏幕宽度设置根元素font-size
+        document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+        window.addEventListener("resize", (e) => {
+            document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+        });
+
+        var dots = $(".swiper-pagination-bullet");
+        var wordct = $(".word-content");
+        dots.mouseenter(function () {
+            // console.log($(this).attr("aria-label").slice(-1));
+            $(this).addClass("swiper-pagination-bullet-active").siblings().removeClass(
+                "swiper-pagination-bullet-active");
+            dots[$(this).attr("aria-label").slice(-1) - 1].click();
+            opc1();
+
+            // mySwiper.slideTo($(this).attr("aria-label").slice(-1))
+        });
+
+        function opc1() {
+            opc0();
+            dots.each(function (i, ele) {
+                if ($(ele).hasClass("swiper-pagination-bullet-active")) {
+                    console.log($(ele).attr("aria-label").slice(-1));
+                    // console.log( $(".word-content")[$(ele).attr("aria-label").slice(-1)]);
+                    // $(".word-content")[$(ele).attr("aria-label").slice(-1)-1].style.opacity = "1"
+                    var now2 = $(ele).attr("aria-label").slice(-1);
+
+                    if (now2 > 1) {
+                        wordct.eq(now2 - 2).not(this).css({
+                            "transition": "all 0s",
+                            "opacity": "0",
+                            "transition": "all 1s",
+                        });
+                        setTimeout(() => {
+                            wordct.eq(now2 - 2).css("opacity", "1");
+                        }, 800);
+                    }
+                    return now2;
+                }
+            });
+        }
+
+
+
+        function opc0() {
+            wordct.each(function (i2, ele2) {
+                $(ele2).css("opacity", "0");
+            });
+        }
+
+        window.onmousewheel = opc1
+        // console.log($(".word-content").length);
+    </script>
+</body>
+
+</html>

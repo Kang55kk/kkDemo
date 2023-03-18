@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  flex-direction: column;
+}
+@font-face {
+  font-family: canger;
+  src: url("../quote/仓耳非白W05/仓耳非白W05.ttf");
+}
+body .KK .x-bgr {
+  width: 100vw;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url('/img/bgr.jpg');
+  filter: opacity(80%);
+  position: relative;
+  opacity: 0.9;
+}
+body .KK .x-bgr .mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .KK .x-bgr .mask h1 {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.737);
+  padding: 20rem;
+  text-align: center;
+  font-size: 40rem;
+  font-family: canger;
+  letter-spacing: 6rem;
+  font-weight: 100;
+  border-radius: 8rem;
+}
+body .KK .x-work {
+  background-color: transparent;
+  padding-top: 20rem;
+  height: 500rem;
+}
+body .KK .x-work .x-title {
+  color: rgba(255, 255, 255, 0.882);
+  font-family: canger;
+  font-size: 20rem;
+  text-align: center;
+  font-weight: 100;
+}
+body .KK .x-work .main {
+  margin-top: 20rem;
+  box-shadow: 0 0 14rem 0rem #000000;
+  padding: 30rem;
+  border-radius: 10rem;
+  width: 600rem;
+}
+body .KK .x-work .main .class {
+  margin-top: 10rem;
+}
+body .KK .x-work .main .class h2 {
+  color: rgba(231, 231, 236, 0.916);
+  font-size: 15rem;
+  letter-spacing: 2rem;
+  margin-bottom: 15rem;
+  padding-bottom: 3rem;
+  width: 100%;
+  border-bottom: 1rem solid rgba(132, 132, 132, 0.612);
+}
+body .KK .x-work .main .class ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+body .KK .x-work .main .class ul li {
+  margin-right: 20rem;
+  margin-bottom: 10rem;
+}
+body .KK .x-work .main .class ul li a {
+  background: center no-repeat;
+  background-size: cover !important;
+  width: 156rem;
+  height: 80rem;
+  display: block;
+  opacity: 0.8;
+  border-radius: 5rem;
+}
+body .KK .x-work .main .class ul li h3 {
+  color: rgba(210, 199, 199, 0.964);
+  font-size: 13rem;
+  margin-top: 8rem;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 2rem;
+}
+body .KK .x-work .main .class ul li:nth-last-child(1) {
+  margin-right: 0;
+}
+body .KK .x-work .main .class1 .item1 {
+  background: url('../img/整容.jpg');
+}
+body .KK .x-work .main .class1 .item2 {
+  background: url('../img/儿童中心.jpg');
+}
+body .KK .x-work .main .class2 .item1 {
+  background: url('../img/小蜜蜂.jpg');
+}
+body .KK .x-work .main .class2 .item2 {
+  background: url('../img/时钟.jpg');
+  background-position: -10px 0;
+}
+body .KK .x-work .main .class2 .item3 {
+  background: url('../img/王者手风琴.jpg');
+}
+body .KK .x-work .main .class3 .item1 {
+  background: url('../img/MP3.jpg');
+}
+body .KK .x-work .main .class4 .item1 {
+  background: url('../img/海绵宝宝.jpg');
+}
+body .KK .x-work .main .class4 .item2 {
+  background: url('../img/别踩白块.jpg');
+}
+body .KK .x-work .main .class5 .item1 {
+  background: url('../img/三级联动.jpg');
+}
+body .KK .x-work .main .class5 .item2 {
+  background: url('../img/九宫格抽奖.jpg');
+}
+body .KK .x-work .main .class5 .item3 {
+  background: url('../img/卡片记忆.jpg');
+}
+body .starbgr {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(#000000, #1f1f3a, #3b2f4a);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  opacity: 1;
+}
+body .starbgr .comet {
+  position: absolute;
+  width: 200rem;
+  height: 2rem;
+  border-radius: 20% 20% / 50% 50%;
+  background-image: linear-gradient(90deg, #cccbcb 0%, #3434346c);
+}
+body .starbgr svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+body .starbgr svg circle {
+  fill: white;
+}
+body .starbgr #svg1 circle {
+  animation: twinkle 3s infinite linear alternate;
+}
+body .starbgr #svg2 circle {
+  animation: twinkle2 2s infinite linear alternate;
+}
+body .starbgr #svg3 circle {
+  animation: twinkle3 4s infinite linear alternate-reverse;
+}
+body .starbgr #svg6 circle {
+  animation: twinkle3 4s infinite linear alternate;
+}
+body .starbgr #svg4 circle {
+  animation: twinkle2 2s infinite linear alternate-reverse;
+}
+body .starbgr #svg5 circle {
+  animation: twinkle 3s infinite linear alternate-reverse;
+}
+@keyframes twinkle {
+  0% {
+    r: 1.3;
+    opacity: 1;
+  }
+  100% {
+    r: 0.6;
+    opacity: 0.2;
+  }
+}
+@keyframes twinkle2 {
+  0% {
+    r: 1.4;
+    opacity: 1;
+  }
+  100% {
+    r: 0.7;
+    opacity: 0.3;
+  }
+}
+@keyframes twinkle3 {
+  0% {
+    r: 1.1;
+    opacity: 1;
+  }
+  100% {
+    r: 0.6;
+    opacity: 0.2;
+  }
+}
+body .lunbo {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+body .lunbo ul {
+  transform-style: preserve-3d;
+  position: relative;
+  transform-origin: center center 172rem;
+  width: 350rem;
+  height: 200rem;
+  background-color: black;
+  transform: rotateX(5deg);
+}
+body .lunbo li {
+  opacity: 0.8;
+  width: 350rem;
+  height: 200rem;
+  border: 1rem solid gray;
+  position: absolute;
+  transform-style: preserve-3d;
+  left: 0;
+  top: 0;
+  display: block;
+  background-size: cover;
+  background-position: center;
+}
+body .lunbo li:nth-child(2) {
+  background-image: url('../img/MP3.jpg');
+}
+body .lunbo li:nth-child(3) {
+  background-image: url('../img/时钟.jpg');
+}
+body .lunbo li:nth-child(4) {
+  background-image: url('../img/别踩白块.jpg');
+}
+body .lunbo li:nth-child(5) {
+  background-image: url('../img/儿童中心.jpg');
+}
+body .lunbo li:nth-child(6) {
+  background-image: url('../img/整容.jpg');
+}
+/*# sourceMappingURL=./index.css.map */

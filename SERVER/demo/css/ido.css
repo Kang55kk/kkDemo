@@ -1,0 +1,150 @@
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    /* 子元素3d变形透视视点距离变形基准点Z轴的尺寸 */
+    perspective: 800px;
+}
+
+body .background {
+    /* 规定子元素在3d空间嵌套 */
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+body .background .card {
+    /* 不要加超出隐藏,否则z轴的动画无法生效 */
+    transform-style: preserve-3d;
+    margin: auto;
+    width: 250px;
+    height: 300px;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 5px 5px 24px 0px rgba(0, 0, 0, 0.2);
+    transition: all 1s;
+    transform-origin: center center 100px;
+}
+
+body .background .card .bottom {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px 0px rgba(54, 52, 52, 0.4);
+    background-color: rgba(55, 51, 51, 0.8);
+    transform: translateZ(-20px);
+}
+
+body .background .card .photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-image: url("../image/600.jpg");
+    background-size: cover;
+}
+
+body .background .card h2 {
+    color: white;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 300;
+    padding: 0;
+    z-index: 4;
+    transition: all 1s;
+}
+
+body .background .card h3 {
+    z-index: 4;
+    margin: 10px 0 40px 0;
+    color: white;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 300;
+    padding: 0;
+    transition: all 1s;
+}
+
+body .background .card>p {
+    z-index: 4;
+    margin: 0px 0 30px 0;
+    font-size: 16px;
+    color: white;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 300;
+    padding: 0;
+    transition: all 1s;
+}
+
+body .background .card .chart {
+    display: flex;
+    z-index: 4;
+    width: 220px;
+    height: 20px;
+    align-items: center;
+    justify-content: space-around;
+    transform-style: preserve-3d;
+}
+
+body .background .card .chart .bar {
+    width: 20px;
+    height: 20px;
+    z-index: 4;
+    background-color: aliceblue;
+    text-align: center;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s;
+    transform: rotate(45deg);
+}
+
+body .background .card .chart .bar::after,
+body .background .card .chart .bar::before {
+    content: '';
+    position: absolute;
+    text-align: left;
+    line-height: 20px;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 20px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    transform-origin: left center;
+}
+
+body .background .card .chart .bar::before {
+    content: attr(data-num);
+    transform: rotateX(-90deg) rotateZ(90deg) translateY(-10px) translateZ(10px);
+}
+
+body .background .card .chart .bar::after {
+    transform: rotateY(90deg) translateZ(20px);
+}
+
+body .background .card.rot {
+    transform: rotateX(45deg) translateZ(100px);
+}
+
+body .background .card.rot>h2,
+body .background .card.rot>p {
+    transform: translateZ(100px);
+    opacity: 0;
+}
+
+body .background .card.rot>h3 {
+    transform: translateZ(15px);
+}
+
+/*# sourceMappingURL=./ido.css.map */

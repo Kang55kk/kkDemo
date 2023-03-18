@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CH" style="font-size: calc(100vw / 1536);">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.5" />
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="./CSS/bee.css" />
+  <style>
+    h1 {
+      position: fixed;
+      background-color: black;
+      color: white;
+      top: 0;
+      left: 0;
+      font-size: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <!-- <h1>将比例缩到最小以转动视角</h1> -->
+  <script>
+    document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+    window.addEventListener("resize", (e) => {
+      document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+    });
+    function preventDefault(evt) {
+      console.log(evt._isScroller);
+      if (!evt._isScroller) {
+        evt.preventDefault();
+      }
+    }
+    //阻止默认事件
+    window.onload = function () {
+      document.body.addEventListener("touchmove", preventDefault);
+    };
+    window.addEventListener('touchmove', preventDefault, { passive: false });
+
+    var box = $(".box");
+    function cuboid(xlength, xwidth, xheight, jqfather, clsName = "baba", left = 0, top = 0, translateZ = 0, color = "rgb(0 255 161 / 57%)") {
+      var bottom = $("<div></div>");
+      var fu = jqfather.attr("class").split(" ")[0];
+      bottom.addClass(fu + "bottom").addClass("bottom");
+      var range = "." + bottom.attr("class") + " ";
+      bottom.css({
+        width: xlength + "rem",
+        height: xwidth + "rem",
+        "transform-style": "preserve-3d",
+        position: "absolute",
+        left: left + "rem",
+        top: top + "rem",
+        transform: "translateZ(" + translateZ + "rem)",
+      });
+      jqfather.append(bottom);
+      bottom.append($("<div></div>").addClass("up"));
+      bottom.append($("<div></div>").addClass("left"));
+      bottom.append($("<div></div>").addClass("right"));
+      bottom.append($("<div></div>").addClass("back"));
+      bottom.append($("<div></div>").addClass("front"));
+      var set = range + ".right," + range + ".left," + range + ".up," + range + ".back," + range + ".front"; $(".bottom .right,.bottom .left,.bottom .up,.bottom .back,.bottom .front").css({
+        position: "absolute",
+        "box-sizing": "border-box",
+      }); bottom.parent().css({
+        "transform-style": "preserve-3d",
+      });
+      $("." + fu + " .bottom").css({
+        "transform-origin": "center center " + xheight / 2 + "rem",
+        width: xlength,
+        height: xwidth,
+        "background-color": color,
+      });
+      $("." + fu + " .bottom .left").css({
+        height: "inherit",
+        width: xheight,
+        "background-color": color,
+        "transform-origin": "0 center",
+        transform: "rotateY(-90deg)",
+      });
+      $("." + fu + " .bottom .right").css({
+        width: xheight,
+        height: xwidth,
+        "background-color": color,
+        position: "absolute",
+        right: "0",
+        "transform-origin": xheight + "rem" + " center",
+        transform: "rotateY(90deg)",
+      });
+      $("." + fu + " .bottom .back").css({
+        width: "inherit",
+        height: xheight,
+        "background-color": color,
+        "transform-origin": "center 0rem",
+        transform: "rotateX(90deg)",
+      });
+      $("." + fu + " .bottom .up").css({
+        width: "inherit",
+        height: "inherit",
+        "background-color": color,
+        transform: "translateZ(" + xheight + "rem)",
+      });
+      $("." + fu + " .bottom .front").css({
+        width: "inherit",
+        height: xheight + "rem",
+        "background-color": color,
+        "transform-origin": "center " + xheight + "rem",
+        position: "absolute",
+        bottom: "0",
+        transform: "rotateX(-90deg)",
+      });
+      clsName ? ($(".bottom")[0].className = clsName) : 1;
+    }
+
+    function movement(moveElementJqObj, axis1, axis2, axis1Df, axis2Df, axis1ZF = true, axis2ZF = true) {
+      axis1 = axis1.toUpperCase();
+      axis2 = axis2.toUpperCase();
+      function zhengze(str) {//拿到偏转角度的值
+        var result = str.match(/\(([^)]*)de/);
+        if (result) {
+          return Number(result[1]);
+        }
+      }
+      window.savex = 0;
+      window.savey = 0;
+      window.initMove = true;
+
+      let equipment = (() => {
+        let str = (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) ? 'app' : 'pc';
+        return str;
+      })();
+      if (equipment == "pc") {
+        var down = "onmousedown";
+        var move = "onmousemove";
+        var up = "onmouseup";
+      } else {
+        var down = "ontouchstart";
+        var move = "ontouchmove";
+        var up = "ontouchend";
+      }
+
+
+      document.body[down] = function (event) {
+        if (equipment == "app") {
+          event = event.changedTouches[0];
+        }
+        let inipagex = event.pageX; //拿到一开始鼠标相对页面的位置
+        let inipagey = event.pageY;
+        document.body[move] = function (e) {
+          if (equipment == "app") {
+            e = e.changedTouches[0];
+          }
+
+
+          let movex = e.pageX - inipagex;
+          let movey = e.pageY - inipagey;
+          let realMovex = ((-movey / 3) + savey) % 360;
+          let rearMovey = (-((movex / 3) - savex)) % 360;
+          if (window.initMove) {
+            console.log(window.initMove);
+            realMovex = realMovex + (axis1Df || 0);
+            rearMovey = rearMovey + (axis2Df || 0);
+          }
+          moveElementJqObj[0].style.transform = `rotate${axis1}(${realMovex}deg) rotate${axis2}(${rearMovey}deg)`;
+          inipagex = event.pageX;
+          inipagey = event.pageY;
+        };
+      };
+
+      document.body[up] = function () {
+        window.initMove = false;
+
+        document.body[move] = null;
+        //保存旋转角度
+        let str = moveElementJqObj.parent()[0].innerHTML;
+        let arr = str.split(`rotate${axis2}`);
+        arr.forEach((e, i) => {
+          i == 0 ? savey = zhengze(e) : "";
+          i == 1 ? savex = zhengze(e) : "";
+        });
+      };
+    }
+
+
+    //去除li的默认操作
+    $(".lunbo li").mousedown(function (e) {
+      e.preventDefault();
+    });
+    $(".lunbo").mousedown(function (e) {
+      e.preventDefault();
+    });
+
+    function beemain() {
+      cuboid(500, 500, 15, $(".box"), "dizhuan", 0, 0, 0, "rgb(188, 143, 61)");
+      cuboid(500, 500, 5, $(".dizhuan .up"), "caodid", 0, 0, 0, "rgb(108, 136, 62)");
+      cuboid(500, 500, 10, $(".caodid .up"), "caodi", 0, 0, 0, "rgb(108, 136, 62)");
+      cuboid(60, 100, 50, $(".caodi .up"), "beebody", 225, 225, 100, 'rgb(182, 141, 42)');
+      cuboid(15, 15, 15, $(".beebody"), "beefoot", 5, 22.5, -15, "black");
+      cuboid(15, 15, 15, $(".beebody"), "beefoot", 40, 22.5, -15, "black");
+      cuboid(15, 15, 15, $(".beebody"), "beefoot", 40, 42.5, -15, "black");
+      cuboid(15, 15, 15, $(".beebody"), "beefoot", 5, 42.5, -15, "black");
+      cuboid(15, 15, 15, $(".beebody"), "beefoot", 5, 62.5, -15, "black");
+      cuboid(15, 15, 15, $(".beebody"), "beefoot", 40, 62.5, -15, "black");
+      cuboid(25, 25, 5, $(".beebody>.front"), "beeeye", -1, 10, -5, "white");
+      cuboid(25, 25, 5, $(".beebody>.front"), "beeeye", 36, 10, -5, "white");
+      cuboid(13, 13, 1, $($(".beeeye .up")[0]), "beeeyez0", 6, 12, 0, "black");
+      cuboid(13, 13, 1, $($(".beeeye>.up")[1]), "beeeyez1", 5, 12, 0, "black");
+      cuboid(5, 10, 5, $(".beeeyez0"), "chujiao0", 5, -30, -5, "black");
+      cuboid(5, 10, 5, $(".beeeyez1"), "chujiao1", 3, -30, -5, "black");
+      cuboid(5, 10, 5, $(".chujiao0 .up"), "chujiaoq0", 0, 0, 0, "rgb(209, 164, 56)");
+      cuboid(5, 10, 5, $(".chujiao1 .up"), "chujiaoq1", 0, 0, 0, "rgb(209, 164, 56)");
+      cuboid(5, 60, 60, $(".beebody>.right"), "chibangr", 20, 20, -10, "rgb(157, 197, 194,0.7)");
+      cuboid(5, 60, 60, $(".beebody>.left"), "chibangl", 25, 20, -10, "rgb(157, 197, 194,0.7)");
+      //下面是第一朵花
+      cuboid(50, 50, 5, $(".caodi>.up"), "huapeng1", 50, 50, 0, "rgb(197, 138, 77)");
+      cuboid(10, 10, 60, $(".huapeng1>.up"), "hua1gen", 20, 20, 0, "rgb(76, 182, 72)");
+      cuboid(40, 40, 10, $(".huapeng1>.up"), "hua1mian", 5, 5, 50, "rgb(245, 137, 69)");
+      cuboid(14, 14, 5, $(".hua1mian>.up"), "hua1zhutou", 13, 13, 0, "rgb(16, 130, 67)");
+      cuboid(7, 20, 8, $(".hua1mian>.left"), "hua1mianl", 0, 10, 0, "rgb(245, 137, 69)");
+      cuboid(7, 20, 8, $(".hua1mian>.right"), "hua1mianr", 3, 10, 0, "rgb(245, 137, 69)");
+      cuboid(20, 7, 8, $(".hua1mian>.front"), "hua1mianf", 10, 3, 0, "rgb(245, 137, 69)");
+      cuboid(20, 7, 8, $(".hua1mian>.back"), "hua1mianb", 10, 0, 0, "rgb(245, 137, 69)");
+      //下面是第二朵花
+
+      cuboid(50, 50, 5, $(".caodi>.up"), "huapeng2", 400, 400, 0, "rgb(197, 138, 77)");
+      cuboid(10, 10, 60, $(".huapeng2>.up"), "hua2gen", 20, 20, 0, "rgb(76, 182, 72)");
+      cuboid(40, 40, 10, $(".huapeng2>.up"), "hua2mian", 5, 5, 50, "rgb(243, 115, 114)");
+      cuboid(14, 14, 5, $(".hua2mian>.up"), "hua2zhutou", 13, 13, 0, "rgb(238, 213, 45)");
+      cuboid(7, 20, 8, $(".hua2mian>.left"), "hua2mianl", 0, 10, 0, "rgb(243, 115, 114)");
+      cuboid(7, 20, 8, $(".hua2mian>.right"), "huamianr", 3, 10, 0, "rgb(243, 115, 114)");
+      cuboid(20, 7, 8, $(".hua2mian>.front"), "hua2mianf", 10, 3, 0, "rgb(243, 115, 114)");
+      cuboid(20, 7, 8, $(".hua2mian>.back"), "hua2mianb", 10, 0, 0, "rgb(243, 115, 114)");
+
+      //下面是第三朵花
+      cuboid(50, 50, 5, $(".caodi>.up"), "huapeng3", 50, 400, 0, "rgb(197, 138, 77)");
+      cuboid(10, 10, 60, $(".huapeng3>.up"), "hua3gen", 20, 20, 0, "rgb(76, 182, 72)");
+      cuboid(40, 40, 10, $(".huapeng3>.up"), "hua3mian", 5, 5, 50, "rgb(184, 140, 192)");
+      cuboid(14, 14, 5, $(".hua3mian>.up"), "hua3zhutou", 13, 13, 0, "rgb(238, 213, 46)");
+      cuboid(7, 20, 8, $(".hua3mian>.left"), "hua3mianl", 0, 10, 0, "rgb(184, 140, 192)");
+      cuboid(7, 20, 8, $(".hua3mian>.right"), "huamianr", 3, 10, 0, "rgb(184, 140, 192)");
+      cuboid(20, 7, 8, $(".hua3mian>.front"), "hua3mianf", 10, 3, 0, "rgb(184, 140, 192)");
+      cuboid(20, 7, 8, $(".hua3mian>.back"), "hua3mianb", 10, 0, 0, "rgb(184, 140, 192)");
+
+      //下面是第四朵花
+      cuboid(50, 50, 5, $(".caodi>.up"), "huapeng4", 400, 50, 0, "rgb(197, 138, 77)");
+      cuboid(10, 10, 60, $(".huapeng4>.up"), "hua4gen", 20, 20, 0, "rgb(76, 182, 72)");
+      cuboid(40, 40, 10, $(".huapeng4>.up"), "hua4mian", 5, 5, 50, "rgb(148, 185, 222)");
+      cuboid(14, 14, 5, $(".hua4mian>.up"), "hua4zhutou", 13, 13, 0, "rgb(238, 76, 77)");
+      cuboid(7, 20, 8, $(".hua4mian>.left"), "hua4mianl", 0, 10, 0, "rgb(148, 185, 222)");
+      cuboid(7, 20, 8, $(".hua4mian>.right"), "huamianr", 3, 10, 0, "rgb(148, 185, 222)");
+      cuboid(20, 7, 8, $(".hua4mian>.front"), "hua4mianf", 10, 3, 0, "rgb(148, 185, 222)");
+      cuboid(20, 7, 8, $(".hua4mian>.back"), "hua4mianb", 10, 0, 0, "rgb(148, 185, 222)");
+      cuboid(30, 30, 50, $(".beebody>.back"), "beetail", 15, 10, 0, "transparent");
+      $(".caodi>.up").append(`<div class="shadow"></div>`);
+    };
+    movement(box, "x", "z", 77.1, 40.2);
+    beemain();
+
+
+
+  </script>
+</body>
+
+</html>

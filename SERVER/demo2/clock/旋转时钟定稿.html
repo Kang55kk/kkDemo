@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .clock {
+        /* transform: scale(0); */
+        transition: all .3s;
+        width: 476px;
+        height: 476px;
+        background-color: rgb(0, 0, 0);
+        position: relative;
+        border-radius: 50%;
+        box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(0, 0, 0, 0.5), inset -4px -4px 10px rgba(67, 67, 67, 0.3), 4px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .clock .seconds {
+        height: 200px;
+        width: 2px;
+        background-color: #e5e5e5;
+        position: absolute;
+        top: 78px;
+        left: calc(50% - 1px);
+        transform-origin: center 160px;
+    }
+
+    .clock .hour {
+        height: 100px;
+        width: 10px;
+        background-color: #fff;
+        position: absolute;
+        top: 138px;
+        left: calc(50% - 5px);
+        transform-origin: center 100%;
+        border-radius: 10px;
+    }
+
+    .clock .min {
+        height: 150px;
+        width: 8px;
+        background-color: #fffe;
+        position: absolute;
+        top: 88px;
+        left: calc(50% - 4px);
+        transform-origin: center 100%;
+        border-radius: 8px;
+    }
+
+
+    .kedu i.b {
+        width: 6px;
+        height: 50px;
+        background-color: white;
+        position: absolute;
+        top: 20px;
+        left: calc(50% - 3px);
+        transform: rotate(45deg);
+        transform-origin: center calc(238px - 20px);
+        border-radius: 2px;
+    }
+
+    /* .dot {
+    width: 6px;
+    height: 6px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    left:calc(50% - 3px);
+    top:calc(50% - 3px);
+} */
+    .dot {
+        width: 14px;
+        height: 14px;
+        background-color: #fff;
+        position: absolute;
+        border-radius: 50%;
+        z-index: 1;
+        left: calc(50% - 7px);
+        top: calc(50% - 7px);
+    }
+
+    .clock span {
+        font-size: 60px;
+        color: rgb(255, 230, 0);
+        color: white;
+        /* border: 1px solid gray; */
+        width: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        /* font-family: "yunjiangti"; */
+
+    }
+
+    @font-face {
+        font-family: yunjiangti;
+        src: url("./时钟/云江体.ttf");
+    }
+
+    .clock span:nth-of-type(1) {
+        left: calc(50% - 40px);
+        top: 10px;
+    }
+
+    span:nth-of-type(2) {
+        top: calc(50% - 40px);
+        left: 10px;
+
+    }
+
+    span:nth-of-type(3) {
+        left: calc(50% - 40px);
+        top: calc(100% - 90px)
+    }
+
+    span:nth-of-type(4) {
+
+        top: calc(50% - 40px);
+        left: calc(100% - 90px);
+
+    }
+</style>
+
+<body>
+
+    <div class="clock">
+        <div class="kedu">
+            <i class="seconds"></i>
+            <i class="min"></i>
+            <i class="hour"></i>
+        </div>
+        <div class="dot"></div>
+        <!-- <span>12</span><span>9</span><span>6</span><span>3</span> -->
+    </div>
+
+    <script>
+        var clock = document.querySelector(".clock")
+        var kedu = document.querySelector(".kedu")
+        for (var i = 0; i < 60; i++) {
+            if (i % 5 == 0) {
+                var node = document.createElement("i")
+                node.className = "b"
+                node.style.transform = "rotate(" + (i) * 6 + "deg)";
+                document.querySelector(".kedu").appendChild(node);
+            }
+        }
+
+        id3 = setInterval(function () {
+            var now = new Date()
+            var hh = now.getHours()
+            var mm = now.getMinutes()
+            var ss = now.getSeconds()
+            // console.log(hour);
+            var scd = document.querySelector(".clock .seconds")
+            var min = document.querySelector(".clock .min")
+            var hour = document.querySelector(".clock .hour")
+
+            scd.style.transform = "rotate(" + ss * 6 + "deg)";
+            min.style.transform = "rotate(" + mm * 6 + "deg)";
+            hour.style.transform = "rotate(" + +(hh * 30 + mm * 0.5) + "deg)";
+        }, 1000);
+        // clearInterval(id3)
+    </script>
+</body>
+
+</html>

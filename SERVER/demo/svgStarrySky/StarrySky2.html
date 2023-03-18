@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/responsive.tabs.css"
+      media="all"
+    /> -->
+
+  <!-- <link href="css/bootstrap.min.css" rel="stylesheet" /> -->
+
+  <title>SVG动态星空</title>
+  <link rel="stylesheet" href="../css/index.css" />
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css" />
+</head>
+
+<body>
+  <div class="box starbgr">
+    <svg width="100%" height="100%" id="svg1"></svg>
+    <svg width="100%" height="100%" id="svg2"></svg>
+    <svg width="100%" height="100%" id="svg3"></svg>
+    <svg width="100%" height="100%" id="svg4"></svg>
+    <svg width="100%" height="100%" id="svg5"></svg>
+    <svg width="100%" height="100%" id="svg6"></svg>
+    <!-- <div class="comet"></div> -->
+  </div>
+
+
+  <script>
+    function rdm(x, y) {
+      return (Math.random() * (y - x) + x).toFixed(2);
+    }
+    (function creStar() {
+      try {
+        for (let i = 0; i < 30; i++) {
+          let star = $(
+            document.createElementNS("http://www.w3.org/2000/svg", "circle")
+          ).attr({
+            cx: rdm(0, 100) + "%",
+            cy: rdm(0, 100) + "%",
+            r: 1.1,
+          });
+          $("#svg1").append(star);
+        }
+        for (let i = 0; i < 100; i++) {
+          let star = $(
+            document.createElementNS("http://www.w3.org/2000/svg", "circle")
+          ).attr({
+            cx: rdm(0, 100) + "%",
+            cy: rdm(0, 100) + "%",
+            r: 1.1,
+          });
+          $("#svg2").append(star);
+        }
+        for (let i = 0; i < 100; i++) {
+          let star = $(
+            document.createElementNS("http://www.w3.org/2000/svg", "circle")
+          ).attr({
+            cx: rdm(0, 100) + "%",
+            cy: rdm(0, 100) + "%",
+            r: 1,
+          });
+          $("#svg3").append(star);
+        }
+        for (let i = 0; i < 100; i++) {
+          let star = $(
+            document.createElementNS("http://www.w3.org/2000/svg", "circle")
+          ).attr({
+            cx: rdm(0, 100) + "%",
+            cy: rdm(0, 100) + "%",
+            r: 1.1,
+          });
+          $("#svg4").append(star);
+        }
+        for (let i = 0; i < 30; i++) {
+          let star = $(
+            document.createElementNS("http://www.w3.org/2000/svg", "circle")
+          ).attr({
+            cx: rdm(0, 100) + "%",
+            cy: rdm(0, 100) + "%",
+            r: 1.1,
+          });
+          $("#svg5").append(star);
+        }
+        for (let i = 0; i < 100; i++) {
+          let star = $(
+            document.createElementNS("http://www.w3.org/2000/svg", "circle")
+          ).attr({
+            cx: rdm(0, 100) + "%",
+            cy: rdm(0, 100) + "%",
+            r: 1,
+          });
+          $("#svg6").append(star);
+        }
+      } catch (error) {
+        // console.log(error);
+      }
+    })();
+
+
+
+    const CreateComet = function () {
+      this.node = document.createElement("div");
+      let x = 0;
+      let y = 60;
+      let deg = rdm(185, 210);
+      // let deg = 200;
+      let opc = 1;
+      $(this.node).addClass("comet");
+      $(".starbgr").append(this.node);
+      $(this.node).css({
+        transform: `rotate(${deg}deg)`,
+        opacity: 1,
+      });
+      setInterval(() => {
+        x += 10;
+        y += 10 * Math.tan((deg / 360) * 2 * Math.PI);
+        opc -= 0.005;
+        $(this.node).css({
+          left: x,
+          top: y,
+          opacity: opc,
+        });
+      }, 16);
+      setTimeout(() => {
+        $(this.node).remove();
+      }, 5000);
+    };
+    const CreateComet2 = function () {
+      this.node = document.createElement("div");
+      let x = 0;
+      // let y = rdm(20, 40);
+      let y = 30;
+      let deg = rdm(-30, -10);
+      // let deg = 200;
+      let opc = 1;
+      $(this.node).addClass("comet");
+      $(".starbgr").append(this.node);
+      $(this.node).css({
+        transform: `rotate(${deg}deg)`,
+        opacity: 1,
+      });
+      setInterval(() => {
+        x += 10;
+        y += 10 * Math.tan((deg / 360) * 2 * Math.PI);
+        opc -= 0.005;
+        $(this.node).css({
+          right: x,
+          top: -y,
+          opacity: opc,
+        });
+      }, 16);
+      setTimeout(() => {
+        $(this.node).remove();
+      }, 5000);
+    };
+
+    const New1 = () => {
+      let x = rdm(0, 1);
+      if (x >= 0.5) {
+        new CreateComet();
+      } else {
+        new CreateComet2();
+      }
+    };
+    New1();
+    setInterval(() => {
+      New1();
+    }, 5000);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+</body>
+
+</html>
